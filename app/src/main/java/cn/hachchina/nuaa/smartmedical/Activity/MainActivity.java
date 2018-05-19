@@ -17,11 +17,15 @@ import android.os.Bundle;
 import android.support.v4.app.ActivityCompat;
 import android.util.Log;
 import android.view.View;
+<<<<<<< HEAD
+import android.widget.Toast;
+=======
 import android.widget.DatePicker;
 import android.widget.TimePicker;
 import android.widget.Toast;
 
 import java.util.Calendar;
+>>>>>>> upstream/master
 
 import cn.hachchina.nuaa.smartmedical.Bean.UserBean;
 import cn.hachchina.nuaa.smartmedical.Bean.ViewBean_MainActivity;
@@ -115,6 +119,7 @@ public class MainActivity extends VoiceHelper {
             public void onClick(View v) {
 //                PlayRecordUtil playRecordUtil = new PlayRecordUtil();
 //                playRecordUtil.startPlaying();
+                Toast.makeText(MainActivity.this,"info",Toast.LENGTH_SHORT).show();
                 Intent intent = new Intent();
                 intent.setClass(MainActivity.this, JBZZActivity.class);
                 MainActivity.this.startActivity(intent);
