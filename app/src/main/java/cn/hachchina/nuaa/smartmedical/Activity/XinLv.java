@@ -73,8 +73,7 @@ public class XinLv extends Activity {
 	private static Camera camera = null;
 	//private static View image = null;
 	private static TextView text = null;
-	private static TextView text1 = null;
-	private static TextView text2 = null;
+
 	private static WakeLock wakeLock = null;
 	private static int averageIndex = 0;
 	private static final int averageArraySize = 4;
@@ -172,8 +171,7 @@ public class XinLv extends Activity {
 		previewHolder.setType(SurfaceHolder.SURFACE_TYPE_PUSH_BUFFERS);
 		//		image = findViewById(R.id.image);
 		text = (TextView) findViewById(R.id.text);
-		text1 = (TextView) findViewById(R.id.text1);
-		text2 = (TextView) findViewById(R.id.text2);
+
 		PowerManager pm = (PowerManager) getSystemService(Context.POWER_SERVICE);
 		wakeLock = pm.newWakeLock(PowerManager.FULL_WAKE_LOCK, "DoNotDimScreen");
 	}
@@ -347,7 +345,7 @@ public class XinLv extends Activity {
 			//图像处理
 			int imgAvg = ImageProcessing.decodeYUV420SPtoRedAvg(data.clone(),height,width);
 			gx=imgAvg;
-			text1.setText("平均像素值是"+String.valueOf(imgAvg));
+			//text1.setText("平均像素值是"+String.valueOf(imgAvg));
 			//像素平均值imgAvg,日志
 			//Log.i(TAG, "imgAvg=" + imgAvg);
 			if (imgAvg == 0 || imgAvg == 255) {
@@ -371,7 +369,7 @@ public class XinLv extends Activity {
 				if (newType != currentType) {
 					beats++;
 					flag=0;
-					text2.setText("脉冲数是"+String.valueOf(beats));
+					//text2.setText("脉冲数是"+String.valueOf(beats));
 					//Log.e(TAG, "BEAT!! beats=" + beats);
 				}
 			} else if (imgAvg > rollingAverage) {
@@ -416,8 +414,7 @@ public class XinLv extends Activity {
 					}
 				}
 				int beatsAvg = (beatsArrayAvg / beatsArrayCnt);
-				text.setText("您的的心率是"+String.valueOf(beatsAvg)+"  zhi:"+String.valueOf(beatsArray.length)
-						+"    "+String.valueOf(beatsIndex)+"    "+String.valueOf(beatsArrayAvg)+"    "+String.valueOf(beatsArrayCnt));
+				text.setText(String.valueOf(beatsAvg)+"次/分");
 				//获取系统时间（ms）
 				startTime = System.currentTimeMillis();
 				beats = 0;

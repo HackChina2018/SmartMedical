@@ -20,31 +20,35 @@
         android:layout_marginTop="10dp"
         android:orientation="vertical"></LinearLayout>
 
-    <TextView
-        android:id="@+id/text"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginLeft="50dip"
-        android:layout_weight="1"
-        android:text="显示"
-        android:textColor="#ffffff"></TextView>
+    <RelativeLayout
+        android:layout_marginTop="20dp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
 
-    <TextView
-        android:id="@+id/text1"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginLeft="50dip"
-        android:layout_weight="1"
-        android:text="显示"
-        android:textColor="#ffffff"></TextView>
+        <TextView
 
-    <TextView
-        android:id="@+id/text2"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginLeft="50dip"
-        android:layout_weight="1"
-        android:text="显示"
-        android:textColor="#ffffff"></TextView>
+            android:id="@+id/xinlvtxt"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerHorizontal="true"
+            android:text="心率"
+            android:textColor="#ffffff"
+            android:textSize="30dp" />
+
+        <TextView
+            android:textSize="30dp"
+            android:layout_below="@id/xinlvtxt"
+            android:layout_centerHorizontal="true"
+            android:id="@+id/text"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="50dip"
+            android:layout_weight="1"
+            android:textColor="#ffffff"></TextView>
+
+
+
+
+    </RelativeLayout>
 
 </LinearLayout>
