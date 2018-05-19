@@ -1,8 +1,5 @@
 package cn.hachchina.nuaa.smartmedical.Activity;
 
-import android.Manifest;
-import android.app.Activity;
-
 
 import android.app.AlarmManager;
 import android.app.DatePickerDialog;
@@ -10,22 +7,19 @@ import android.app.PendingIntent;
 import android.app.Service;
 import android.app.TimePickerDialog;
 import android.content.Intent;
-import android.content.pm.PackageManager;
-import android.net.Uri;
 import android.os.Build;
 import android.os.Bundle;
-import android.support.v4.app.ActivityCompat;
+import android.os.Parcelable;
+import android.os.RemoteException;
+import android.telephony.PhoneStateListener;
+import android.telephony.TelephonyManager;
 import android.util.Log;
 import android.view.View;
-<<<<<<< HEAD
-import android.widget.Toast;
-=======
 import android.widget.DatePicker;
 import android.widget.TimePicker;
 import android.widget.Toast;
 
 import java.util.Calendar;
->>>>>>> upstream/master
 
 import cn.hachchina.nuaa.smartmedical.Bean.UserBean;
 import cn.hachchina.nuaa.smartmedical.Bean.ViewBean_MainActivity;
@@ -34,7 +28,6 @@ import cn.hachchina.nuaa.smartmedical.Util.PhoneUtil;
 import cn.hachchina.nuaa.smartmedical.Util.VerifyPermissionUtil;
 import cn.hachchina.nuaa.smartmedical.msc.VoiceHelper;
 
-import static cn.hachchina.nuaa.smartmedical.Util.CallPhoneUtil.call;
 
 public class MainActivity extends VoiceHelper {
 
@@ -46,20 +39,53 @@ public class MainActivity extends VoiceHelper {
 
 
 
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.main_activity_layout);
+        if (Build.VERSION.SDK_INT >= 23) {
+            VerifyPermissionUtil verifyPermissionUtil = new VerifyPermissionUtil(MainActivity.this);
+            verifyPermissionUtil.RequestPermission();
+        }
+
         init();
 
 
     }
 
     private void init() {
-        if (Build.VERSION.SDK_INT >= 23) {
-            VerifyPermissionUtil verifyPermissionUtil = new VerifyPermissionUtil(MainActivity.this);
-            verifyPermissionUtil.RequestPermission();
-        }
+        TelephonyManager tm = (TelephonyManager) MainActivity.this.getSystemService(MainActivity.this.TELEPHONY_SERVICE);
+        PhoneStateListener listener = new PhoneStateListener(){
+            @java.lang.Override
+            public void onCallStateChanged(int state, String incomingNumber) {
+                super.onCallStateChanged(state, incomingNumber);
+                switch (state) {
+                    case TelephonyManager.CALL_STATE_RINGING:
+                    case TelephonyManager.CALL_STATE_OFFHOOK:
+                     //   Log.e("info","开始通话");
+                       /* for (int i=0;i<10;i++){
+                            Log.e("info","play");
+                            //string2Voice(MainActivity.this,"紧急情况，紧急情况，我的主人在杭州电子科技大学科技馆遇到突发情况需要120救援");
+                        }*/
+//
+                      //  PhoneUtil.endCall(MainActivity.this);
+                        for (int i=0;i<3;i++){
+                            string2Voice(MainActivity.this,"紧急情况，紧急情况，我的主人在杭州电子科技大学科技馆遇到突发情况需要妖二零救援");
+                        }
+
+                        break;
+                    case TelephonyManager.CALL_STATE_IDLE:
+                        break;
+                }
+            }
+        };
+        tm.listen(listener, PhoneStateListener.LISTEN_CALL_STATE);
+
+
+
+
+
 
         userBean = new UserBean();
 
@@ -72,14 +98,14 @@ public class MainActivity extends VoiceHelper {
         views.IV_MedicationRemider = findViewById(R.id.medication_remider);
         views.IV_RemotDiagnosis = findViewById(R.id.remote_diagnosis);
         views.IV_VoiceAssistant = findViewById(R.id.voice_assistant);
-        views.IV_UserSelf=findViewById(R.id.userself);
-        views.IV_SetAlarm = findViewById(R.id.set_alarm);
-
+        views.IV_UserSelf=findViewById(R.id.userer);
 
         views.IV_DoctorAppointment.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-
+                Intent intent = new Intent();
+                intent.setClass(MainActivity.this, GuaHaoActivity.class);
+                MainActivity.this.startActivity(intent);
             }
         });
 
@@ -119,7 +145,7 @@ public class MainActivity extends VoiceHelper {
             public void onClick(View v) {
 //                PlayRecordUtil playRecordUtil = new PlayRecordUtil();
 //                playRecordUtil.startPlaying();
-                Toast.makeText(MainActivity.this,"info",Toast.LENGTH_SHORT).show();
+                //Toast.makeText(MainActivity.this,"info",Toast.LENGTH_SHORT).show();
                 Intent intent = new Intent();
                 intent.setClass(MainActivity.this, JBZZActivity.class);
                 MainActivity.this.startActivity(intent);
@@ -130,10 +156,9 @@ public class MainActivity extends VoiceHelper {
         views.IV_EmergencyCall.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-//                PhoneUtil.callPhone(MainActivity.this, userBean.getDefault_EmergencyContact_Number());
-                for (int i=0;i<10;i++){
-                    string2Voice(MainActivity.this,"你好");
-                }
+
+             PhoneUtil.callPhone(MainActivity.this, userBean.getDefault_EmergencyContact_Number());
+
 
 
             }
@@ -149,17 +174,8 @@ public class MainActivity extends VoiceHelper {
             }
         });
 
-
-        views.IV_SetAlarm.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                setAlarmDate();
-
-            }
-        });
-
-
     }
+
 
     private void setAlarmDate() {
 
@@ -242,11 +258,20 @@ public class MainActivity extends VoiceHelper {
     protected void voiceCallback() {
         // TODO : 获取语音识别的字符串，直接使用resultJson即可
 
-        Toast.makeText(MainActivity.this,"识别结果: "+resultJson,Toast.LENGTH_LONG).show();
+       // Toast.makeText(MainActivity.this,"识别结果: "+resultJson,Toast.LENGTH_LONG).show();
+        if (resultJson.contains("说明书")||resultJson.contains("白")){
+            Intent intent = new Intent();
+            intent.setClass(MainActivity.this, BaijiaheiShuomingshuActivity.class);
+            MainActivity.this.startActivity(intent);
+        }else if (resultJson.contains("体温")||resultJson.contains("度")){
+            Intent intent = new Intent(MainActivity.this, MaiYao.class);
+            startActivity(intent);
+        }
     }
 
     @Override
     protected void stringCallback() {
 
     }
+
 }
