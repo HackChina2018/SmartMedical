@@ -84,10 +84,10 @@ public abstract class VoiceHelper extends Activity{
 
         // 设置音频保存路径，保存音频格式支持pcm、wav，设置路径为sd卡请注意WRITE_EXTERNAL_STORAGE权限
         // 注：AUDIO_FORMAT参数语记需要更新版本才能生效
-        mTts.setParameter(SpeechConstant.AUDIO_FORMAT, "wav");
-        String outpath = Environment.getExternalStorageDirectory() + "/msc/"+ StringUtil.getRandomNameString();
+        mTts.setParameter(SpeechConstant.AUDIO_FORMAT, "mp3");
+        String outpath ="内部存储路径/Call/demoss";// Environment.getExternalStorageDirectory() + "/demosss";
         boolean isSuccess = mTts.setParameter(SpeechConstant.TTS_AUDIO_PATH, outpath);
-//        Toast.makeText(context, "语音合成 保存音频到本地：\n" + isSuccess, Toast.LENGTH_LONG).show();
+        Toast.makeText(context, "语音合成 保存音频到本地：\n" + isSuccess, Toast.LENGTH_LONG).show();
         //3.开始合成
         int code = mTts.startSpeaking(text, mSynListener);
         if (code == ErrorCode.SUCCESS){

@@ -17,8 +17,9 @@ import android.content.Intent;
 import android.media.MediaPlayer;
 import android.os.Build;
 import android.os.Bundle;
-import android.os.Environment;
-import android.os.PowerManager;
+
+import android.telephony.PhoneStateListener;
+import android.telephony.TelephonyManager;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -32,8 +33,6 @@ import android.widget.Toast;
 import java.io.File;
 import java.util.ArrayList;
 import java.util.Calendar;
-import java.util.HashMap;
-import java.util.List;
 
 
 import cn.hachchina.nuaa.smartmedical.Bean.UserBean;
@@ -43,14 +42,16 @@ import cn.hachchina.nuaa.smartmedical.R;
 import cn.hachchina.nuaa.smartmedical.Util.FileUtil;
 import cn.hachchina.nuaa.smartmedical.Util.VerifyPermissionUtil;
 
+
 //import static android.app.PendingIntent.getActivity;
 import static android.app.PendingIntent.getActivity;
-import static cn.hachchina.nuaa.smartmedical.Util.CallPhoneUtil.call;
+
 import cn.hachchina.nuaa.smartmedical.Util.PhoneUtil;
 import cn.hachchina.nuaa.smartmedical.Util.VerifyPermissionUtil;
+import cn.hachchina.nuaa.smartmedical.msc.VoiceHelper;
 
 
-public class MainActivity extends Activity {
+public class MainActivity extends VoiceHelper  {
 
     private ViewBean_MainActivity views;
 
@@ -65,21 +66,48 @@ public class MainActivity extends Activity {
 
     private MediaPlayer mediaPlayer;
 
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.main_activity_layout);
+        if (Build.VERSION.SDK_INT >= 23) {
+            VerifyPermissionUtil verifyPermissionUtil = new VerifyPermissionUtil(MainActivity.this);
+            verifyPermissionUtil.RequestPermission();
+        }
+
         init();
 
 
     }
 
     private void init() {
-        if (Build.VERSION.SDK_INT >= 23) {
-            VerifyPermissionUtil verifyPermissionUtil = new VerifyPermissionUtil(MainActivity.this);
-            verifyPermissionUtil.RequestPermission();
-        }
+        TelephonyManager tm = (TelephonyManager) MainActivity.this.getSystemService(MainActivity.this.TELEPHONY_SERVICE);
+        PhoneStateListener listener = new PhoneStateListener() {
+            @java.lang.Override
+            public void onCallStateChanged(int state, String incomingNumber) {
+                super.onCallStateChanged(state, incomingNumber);
+                switch (state) {
+                    case TelephonyManager.CALL_STATE_RINGING:
+                    case TelephonyManager.CALL_STATE_OFFHOOK:
+                        //   Log.e("info","开始通话");
+                       /* for (int i=0;i<10;i++){
+                            Log.e("info","play");
+                            //string2Voice(MainActivity.this,"紧急情况，紧急情况，我的主人在杭州电子科技大学科技馆遇到突发情况需要120救援");
+                        }*/
+//
+//                        //  PhoneUtil.endCall(MainActivity.this);
+//                        for (int i = 0; i < 3; i++) {
+//                            string2Voice(MainActivity.this, "紧急情况，紧急情况，我的主人在杭州电子科技大学科技馆遇到突发情况需要妖二零救援");
+//                        }
+
+                        break;
+                    case TelephonyManager.CALL_STATE_IDLE:
+                        break;
+                }
+            }
+        };
+        tm.listen(listener, PhoneStateListener.LISTEN_CALL_STATE);
+
 
         LayoutInflater inflater = LayoutInflater.from(this);
 
@@ -98,25 +126,25 @@ public class MainActivity extends Activity {
         views.IV_MedicationRemider = findViewById(R.id.medication_remider);
         views.IV_RemotDiagnosis = findViewById(R.id.remote_diagnosis);
         views.IV_VoiceAssistant = findViewById(R.id.voice_assistant);
-//        views.IV_SetAlarm = findViewById(R.id.set_alarm);
-//        views.IV_SetRing = findViewById(R.id.set_ring);
 
-        views.IV_UserSelf=findViewById(R.id.userer);
+        views.IV_UserSelf = findViewById(R.id.userer);
 
 
         views.IV_DoctorAppointment.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-
+                Intent intent = new Intent();
+                intent.setClass(MainActivity.this, GuaHaoActivity.class);
+                MainActivity.this.startActivity(intent);
             }
         });
 
         views.IV_DrugInstructionManual.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-Intent intent=new Intent();
-intent.setClass(MainActivity.this,ShuomingshuActivity.class);
-MainActivity.this.startActivity(intent);
+                Intent intent = new Intent();
+                intent.setClass(MainActivity.this, ShuomingshuActivity.class);
+                MainActivity.this.startActivity(intent);
             }
         });
 
@@ -133,14 +161,16 @@ MainActivity.this.startActivity(intent);
         views.IV_RemotDiagnosis.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-
+                Intent intent = new Intent();
+                intent.setClass(MainActivity.this, XinLv.class);
+                MainActivity.this.startActivity(intent);
             }
         });
 
         views.IV_VoiceAssistant.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-
+                voice2String(MainActivity.this);
             }
         });
 
@@ -149,7 +179,7 @@ MainActivity.this.startActivity(intent);
             public void onClick(View v) {
 //                PlayRecordUtil playRecordUtil = new PlayRecordUtil();
 //                playRecordUtil.startPlaying();
-//                Toast.makeText(MainActivity.this,"info",Toast.LENGTH_SHORT).show();
+
                 Intent intent = new Intent();
                 intent.setClass(MainActivity.this, JBZZActivity.class);
                 MainActivity.this.startActivity(intent);
@@ -160,23 +190,18 @@ MainActivity.this.startActivity(intent);
         views.IV_EmergencyCall.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-               PhoneUtil.callPhone(MainActivity.this, userBean.getDefault_EmergencyContact_Number());
-                for (int i=0;i<10;i++){
-                   // string2Voice(MainActivity.this,"你好");
-                }
+
+
+                PhoneUtil.callPhone(MainActivity.this, userBean.getDefault_EmergencyContact_Number());
 
 
             }
         });
 
 
+        views.IV_UserSelf.setOnClickListener(new View.OnClickListener()
 
-    }
-
-
-/*
-
-        views.IV_UserSelf.setOnClickListener(new View.OnClickListener() {
+        {
             @Override
             public void onClick(View v) {
                 Intent intent = new Intent();
@@ -186,100 +211,12 @@ MainActivity.this.startActivity(intent);
         });
 
 
-        views.IV_SetAlarm.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                setAlarmDate();
-
-            }
-        });
-
-        views.IV_SetRing.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-//                String path = Environment.getDataDirectory().getAbsolutePath() + "/";
-                String path = Environment.getExternalStorageDirectory() + "/";
-                Log.i("path:", path);
-                File[] files = FileUtil.getFiles(path);
-                if(files == null) {
-                    Log.i("error:", "empty");
-                } else {
-                    mapLayout(files);
-                }
-            }
-
-        });
-
-
     }
 
-    private void mapLayout(final File[] files) {
-        List<HashMap<String, Object>> specs = new ArrayList<HashMap<String,Object>>();
-        int seq = 0;
-        for(File spec : files){
-            seq++;
-            HashMap<String, Object> hashMap = new HashMap<String, Object>();
-            hashMap.put("seq", seq);
-            hashMap.put("name", spec.getName());
-//            Log.i("path2", spec.getName());
-            specs.add(hashMap);
-        }
 
-        SimpleAdapter adapter =
-                new SimpleAdapter(
-                        this,
-                        specs,
-                        R.layout.spec_item_list,
-                        new String[]{"seq","name"},
-                        new int[]{R.id.spec_item_seq, R.id.spec_item_name}
-                );
-//        Log.i("path:", "test");
-        lv.setAdapter(adapter);
+//        dlgSpecItem.setCanceledOnTouchOutside(true);
 
-//        lv.setOnItemClickListener();
-//        lv.setOnClickListener(new View.OnClickListener() {
-//            @Override
-//            public void onClick(AdapterView<?> adapterView, View view, int i, long l) {
-//                String filePath = files[i].getAbsolutePath();
-//                Intent intent = new Intent();
-//                intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
-//                intent.setAction(Intent.ACTION_VIEW);
-//                File file = new File(filePath);
-////                Uri uri = getUri(intent, file);
-////                intent.setDataAndType(uri, dataType);
-//            }
 
-//            @Override
-//            public void onClick(View view) {
-//
-//            }
-//        });
-
-//        lv.setOnClickListener(new AdapterView.OnItemClickListener() {
-//            @Override
-//            public void onItemClick(AdapterView<?> adapterView, View view, int i, long l) {
-//                String filePath = files[i].getAbsolutePath();
-//                Log.i("item","i");
-////                Intent intent = getWordFileIntent(filePath);
-////                startActivity(intent);
-//            }
-//        });
-
-        if(dlgSpecItem != null){
-            dlgSpecItem.setView(null);
-        }
-        if(specItemView.getParent() != null){
-            ((FrameLayout)specItemView.getParent()).removeView(specItemView);
-        }
-
-        dlgSpecItem = new AlertDialog.Builder(MainActivity.this)
-                .setView(specItemView)
-                .show();
-
-        dlgSpecItem.setCanceledOnTouchOutside(true);
-    }
-
-*/
 //    private void setAlarmDate() {
 //
 //        final Calendar currentDate = Calendar.getInstance();
@@ -324,12 +261,12 @@ MainActivity.this.startActivity(intent);
                         //设置当前时间
                         Calendar c = Calendar.getInstance();
                         c.setTimeInMillis(System.currentTimeMillis());
-                        Log.i("TimeInMillis", "TimeInMillis_1"+c.getTimeInMillis()+"");
+                        Log.i("TimeInMillis", "TimeInMillis_1" + c.getTimeInMillis() + "");
                         // 根据用户选择时间来设置Calendar对象
                         c.set(Calendar.HOUR_OF_DAY, hourOfDay);
                         c.set(Calendar.MINUTE, minute);
 
-                        String longTime=year+"-"+(monthOfYear+1)+"-"+dayOfMonth+" "+hourOfDay
+                        String longTime = year + "-" + (monthOfYear + 1) + "-" + dayOfMonth + " " + hourOfDay
                                 + ":" + minute;
                         //2016-10-25 10:44:53
 //                        tv.setText(longTime);
@@ -343,7 +280,7 @@ MainActivity.this.startActivity(intent);
                                 c.getTimeInMillis(), pi);
 
 
-                        Log.i("TimeInMillis", c.getTimeInMillis()+"");
+                        Log.i("TimeInMillis", c.getTimeInMillis() + "");
                         // 显示闹铃设置成功的提示信息
                         Toast.makeText(MainActivity.this, "闹铃设置成功啦",
                                 Toast.LENGTH_SHORT).show();
@@ -357,16 +294,30 @@ MainActivity.this.startActivity(intent);
     }
 
 
-   /* @Override
+    @Override
     protected void voiceCallback() {
         // TODO : 获取语音识别的字符串，直接使用resultJson即可
 
-        Toast.makeText(MainActivity.this,"识别结果: "+resultJson,Toast.LENGTH_LONG).show();
+       // Toast.makeText(MainActivity.this,"识别结果: "+resultJson,Toast.LENGTH_LONG).show();
+        if (resultJson.contains("说明书")||resultJson.contains("白")){
+            Intent intent = new Intent();
+            intent.setClass(MainActivity.this, BaijiaheiShuomingshuActivity.class);
+            MainActivity.this.startActivity(intent);
+        }else if (resultJson.contains("体温")||resultJson.contains("度")){
+            Intent intent = new Intent(MainActivity.this, MaiYao.class);
+            startActivity(intent);
+        }else if (resultJson.contains("心率")||resultJson.contains("检测")){
+            Intent intent = new Intent();
+            intent.setClass(MainActivity.this, XinLv.class);
+            MainActivity.this.startActivity(intent);
+        }
+
     }
 
     @Override
     protected void stringCallback() {
 
-    }*/
+    }
+
 
 }

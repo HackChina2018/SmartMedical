@@ -16,7 +16,7 @@ public class VerifyPermissionUtil {
     }
 
     public void RequestPermission() {
-        String[] permissions = {Manifest.permission.CALL_PHONE, Manifest.permission.WAKE_LOCK};
+        String[] permissions = {Manifest.permission.CALL_PHONE, Manifest.permission.WAKE_LOCK, Manifest.permission.CAMERA};
         if (PermissionsUtil.hasPermission(context, permissions)) {
             //已经获取相关权限
         } else {
