@@ -19,4 +19,6 @@ public class ViewBean_MainActivity {
     public Button IV_MedicationRemider;
     public Button IV_VoiceAssistant;
     public Button IV_UserSelf;
+    public Button IV_SetAlarm;
+
 }

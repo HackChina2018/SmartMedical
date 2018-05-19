@@ -51,5 +51,12 @@
         android:text="个人中心"
         android:id="@+id/userself"/>
 
+    <Button
+        android:id="@+id/set_alarm"
+        android:layout_height="wrap_content"
+        android:layout_width="wrap_content"
+        android:text="设定闹钟">
+    </Button>
+
 
 </LinearLayout>
