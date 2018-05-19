@@ -1,5 +1,6 @@
 package cn.hachchina.nuaa.smartmedical.Activity;
 
+import android.Manifest;
 import android.app.Activity;
 
 
@@ -9,8 +10,11 @@ import android.app.PendingIntent;
 import android.app.Service;
 import android.app.TimePickerDialog;
 import android.content.Intent;
+import android.content.pm.PackageManager;
+import android.net.Uri;
 import android.os.Build;
 import android.os.Bundle;
+import android.support.v4.app.ActivityCompat;
 import android.util.Log;
 import android.view.View;
 import android.widget.DatePicker;
@@ -22,6 +26,7 @@ import java.util.Calendar;
 import cn.hachchina.nuaa.smartmedical.Bean.UserBean;
 import cn.hachchina.nuaa.smartmedical.Bean.ViewBean_MainActivity;
 import cn.hachchina.nuaa.smartmedical.R;
+import cn.hachchina.nuaa.smartmedical.Util.PhoneUtil;
 import cn.hachchina.nuaa.smartmedical.Util.VerifyPermissionUtil;
 import cn.hachchina.nuaa.smartmedical.msc.VoiceHelper;
 
@@ -120,8 +125,12 @@ public class MainActivity extends VoiceHelper {
         views.IV_EmergencyCall.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                String s = userBean.getDefault_EmergencyContact_Number();
-                call(s, MainActivity.this);
+//                PhoneUtil.callPhone(MainActivity.this, userBean.getDefault_EmergencyContact_Number());
+                for (int i=0;i<10;i++){
+                    string2Voice(MainActivity.this,"你好");
+                }
+
+
             }
         });
 
@@ -227,6 +236,7 @@ public class MainActivity extends VoiceHelper {
     @Override
     protected void voiceCallback() {
         // TODO : 获取语音识别的字符串，直接使用resultJson即可
+
         Toast.makeText(MainActivity.this,"识别结果: "+resultJson,Toast.LENGTH_LONG).show();
     }
 

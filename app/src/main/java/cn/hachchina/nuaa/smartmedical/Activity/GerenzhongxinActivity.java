@@ -57,6 +57,12 @@ public class GerenzhongxinActivity extends Activity {
                 }
             }
         });
+        yongyaotixing.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                
+            }
+        });
     }
 
     private void initViews() {
