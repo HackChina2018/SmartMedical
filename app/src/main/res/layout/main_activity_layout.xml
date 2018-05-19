@@ -4,43 +4,43 @@
     android:layout_height="match_parent"
     android:orientation="vertical">
 
-    <ImageView
+    <Button
         android:id="@+id/disease_diagnosis"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="常见疾病诊断" />
 
-    <ImageView
+    <Button
         android:id="@+id/drug_instruction_manual"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="药品说明书查询" />
 
-    <ImageView
+    <Button
         android:id="@+id/emergency_call"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="智能呼救" />
 
-    <ImageView
+    <Button
         android:id="@+id/doctor_appointment"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="预约医生" />
 
-    <ImageView
+    <Button
         android:id="@+id/remote_diagnosis"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="远程诊断" />
 
-    <ImageView
+    <Button
         android:id="@+id/medication_remider"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="用药提醒" />
 
-    <ImageView
+    <Button
         android:id="@+id/voice_assistant"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
