@@ -23,10 +23,11 @@ import cn.hachchina.nuaa.smartmedical.Bean.UserBean;
 import cn.hachchina.nuaa.smartmedical.Bean.ViewBean_MainActivity;
 import cn.hachchina.nuaa.smartmedical.R;
 import cn.hachchina.nuaa.smartmedical.Util.VerifyPermissionUtil;
+import cn.hachchina.nuaa.smartmedical.msc.VoiceHelper;
 
 import static cn.hachchina.nuaa.smartmedical.Util.CallPhoneUtil.call;
 
-public class MainActivity extends Activity {
+public class MainActivity extends VoiceHelper {
 
     private ViewBean_MainActivity views;
     Calendar c = Calendar.getInstance();
@@ -97,7 +98,7 @@ public class MainActivity extends Activity {
         views.IV_VoiceAssistant.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-
+                voice2String(MainActivity.this);
             }
         });
 
@@ -208,4 +209,14 @@ public class MainActivity extends Activity {
     }
 
 
+    @Override
+    protected void voiceCallback() {
+        // TODO : 获取语音识别的字符串，直接使用resultJson即可
+        Toast.makeText(MainActivity.this,"识别结果: "+resultJson,Toast.LENGTH_LONG).show();
+    }
+
+    @Override
+    protected void stringCallback() {
+
+    }
 }
