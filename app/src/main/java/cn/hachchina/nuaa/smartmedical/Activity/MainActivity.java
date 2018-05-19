@@ -59,7 +59,9 @@ public class MainActivity extends Activity {
         views.IV_DrugInstructionManual.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-
+                Intent intent = new Intent();
+                intent.setClass(MainActivity.this, ShuomingshuActivity.class);
+                MainActivity.this.startActivity(intent);
             }
         });
 
