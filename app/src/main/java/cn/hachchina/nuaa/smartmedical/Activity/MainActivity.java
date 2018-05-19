@@ -19,7 +19,7 @@ import static cn.hachchina.nuaa.smartmedical.Util.CallPhoneUtil.call;
 public class MainActivity extends Activity {
 
     private ViewBean_MainActivity views;
-    private UserBean userBean;
+    public static UserBean userBean;
 
 
     @Override
@@ -48,6 +48,7 @@ public class MainActivity extends Activity {
         views.IV_MedicationRemider = findViewById(R.id.medication_remider);
         views.IV_RemotDiagnosis = findViewById(R.id.remote_diagnosis);
         views.IV_VoiceAssistant = findViewById(R.id.voice_assistant);
+        views.IV_UserSelf=findViewById(R.id.userself);
 
         views.IV_DoctorAppointment.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -104,6 +105,15 @@ public class MainActivity extends Activity {
             public void onClick(View v) {
                 String s = userBean.getDefault_EmergencyContact_Number();
                 call(s, MainActivity.this);
+            }
+        });
+
+        views.IV_UserSelf.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent();
+                intent.setClass(MainActivity.this, GerenzhongxinActivity.class);
+                MainActivity.this.startActivity(intent);
             }
         });
 
