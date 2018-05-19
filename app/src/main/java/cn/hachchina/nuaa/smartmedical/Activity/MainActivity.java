@@ -129,7 +129,9 @@ public class MainActivity extends VoiceHelper {
         views.IV_RemotDiagnosis.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-
+                Intent intent = new Intent();
+                intent.setClass(MainActivity.this, XinLv.class);
+                MainActivity.this.startActivity(intent);
             }
         });
 

@@ -11,6 +11,7 @@ import org.achartengine.model.XYSeries;
 import org.achartengine.renderer.XYMultipleSeriesRenderer;
 import org.achartengine.renderer.XYSeriesRenderer;
 
+import android.annotation.SuppressLint;
 import android.app.Activity;
 import android.content.Context;
 import android.content.res.Configuration;
@@ -31,14 +32,16 @@ import android.widget.LinearLayout;
 import android.widget.TextView;
 import android.widget.Toast;
 
-import com.lyz.monitor.utils.ImageProcessing;
+import cn.hachchina.nuaa.smartmedical.R;
+import cn.hachchina.nuaa.smartmedical.Util.ImageProcessing;
+
 
 /**
  * 程序的主入口
  * @author liuyazhuang
  *
  */
-public class MainActivity extends Activity {
+public class XinLv extends Activity {
 	//曲线
 	private Timer timer = new Timer();
 	//Timer任务，与Timer配套使用
@@ -105,7 +108,7 @@ public class MainActivity extends Activity {
 	@Override
 	public void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
-		setContentView(R.layout.activity_main);
+		setContentView(R.layout.xinlv);
 		initConfig();
 	}
 
@@ -251,7 +254,7 @@ public class MainActivity extends Activity {
 			flag=1;
 			if(gx<200){
 				if(hua[20]>1){
-					Toast.makeText(MainActivity.this, "请用您的指尖盖住摄像头镜头！", Toast.LENGTH_SHORT).show();
+					Toast.makeText(XinLv.this, "请用您的指尖盖住摄像头镜头！", Toast.LENGTH_SHORT).show();
 					hua[20]=0;}
 				hua[20]++;
 				return;}
@@ -428,6 +431,7 @@ public class MainActivity extends Activity {
 	 */
 	private static SurfaceHolder.Callback surfaceCallback = new SurfaceHolder.Callback() {
 		//创建时调用
+		@SuppressLint("LongLogTag")
 		@Override
 		public void surfaceCreated(SurfaceHolder holder) {
 			try {

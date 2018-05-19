@@ -24,7 +24,7 @@
         android:layout_height="wrap_content"
         android:layout_marginLeft="50dip"
         android:layout_weight="1"
-        android:text="@string/show" >
+        android:text="显示" >
     </TextView>
 
     <TextView
@@ -33,7 +33,7 @@
         android:layout_height="wrap_content"
         android:layout_marginLeft="50dip"
         android:layout_weight="1"
-        android:text="@string/show" >
+        android:text="显示" >
     </TextView>
 
     <TextView
@@ -42,7 +42,7 @@
         android:layout_height="wrap_content"
         android:layout_marginLeft="50dip"
         android:layout_weight="1"
-        android:text="@string/show" >
+        android:text="显示" >
     </TextView>
 
 </LinearLayout>

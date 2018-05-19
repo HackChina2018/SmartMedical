@@ -3,6 +3,13 @@
     xmlns:tools="http://schemas.android.com/tools"
     package="cn.hachchina.nuaa.smartmedical">
 
+    <uses-permission android:name="android.permission.WAKE_LOCK" />
+    <uses-permission android:name="android.permission.CAMERA" />
+    <uses-feature android:name="android.hardware.camera" />
+    <uses-feature android:name="android.hardware.camera.autofocus" />
+
+
+
     <uses-permission android:name="android.permission.CALL_PHONE" />
     <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
     <uses-permission android:name="android.permission.WAKE_LOCK"/>
@@ -10,10 +17,7 @@
     <uses-permission android:name="android.permission.READ_PHONE_STATE" />
     <uses-permission android:name="android.permission.PROCESS_OUTGOING_CALLS" />
 
-    作者：滕玉坤
-    链接：https://juejin.im/post/590bd965a22b9d0058e650ad
-    来源：掘金
-    著作权归作者所有。商业转载请联系作者获得授权，非商业转载请注明出处。
+
 
     <!--连接网络权限，用于执行云端语音能力 -->
     <uses-permission android:name="android.permission.INTERNET"/>
@@ -46,6 +50,7 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
+        <activity android:name=".Activity.XinLv"/>
         <activity android:name=".Activity.GuaHaoActivity"/>
         <activity android:name=".Activity.SetDizhictivity"/>
         <activity android:name=".Activity.SetJinJilianxirenActivity"/>
