@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <TextView
+        android:id="@+id/baijiaheishuomingshuas"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="3dp"
+        android:background="@color/lightskyblue"
+        android:gravity="center"
+        android:text="江中健胃消食片"
+        android:textColor="@color/actionsheet_blue"
+        android:textSize="21dp"
+        android:textStyle="bold" />
+
+    <TextView
+
+        android:id="@+id/shiyingzhnegas"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/baijiaheishuomingshuas"
+        android:text="适应症：
+口服，可以咀嚼。每次3片，每日3次 。小儿酌减。" />
+
+    <TextView
+        android:id="@+id/yongfayonglangas"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/shiyingzhnegas"
+        android:text="用法用量：
+口服，可以咀嚼。每次3片，每日3次 。小儿酌减。
+" />
+
+    <TextView
+        android:id="@+id/wenxintishias"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/yongfayonglangas"
+        android:text="价格：10元/盒" />
+
+    <Button
+        android:id="@+id/goumaixiaoshipian"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:layout_centerHorizontal="true"
+        android:layout_marginBottom="10dp"
+        android:text="购买" />
+</RelativeLayout>

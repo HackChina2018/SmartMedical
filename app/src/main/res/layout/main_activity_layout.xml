@@ -79,5 +79,12 @@
 
 
 
+    <Button
+        android:id="@+id/set_alarm"
+        android:layout_height="wrap_content"
+        android:layout_width="wrap_content"
+        android:text="设定闹钟">
+    </Button>
+
 
 </RelativeLayout>
