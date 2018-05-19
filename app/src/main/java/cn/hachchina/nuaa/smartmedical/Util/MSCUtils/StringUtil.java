@@ -6,6 +6,7 @@ package cn.hachchina.nuaa.smartmedical.Util.MSCUtils;
 
 public class StringUtil {
     public static String getRandomNameString(){
-        return "voice"+System.currentTimeMillis();
+        return "voice";
+//        return "voice"+System.currentTimeMillis();
     }
 }
