@@ -6,6 +6,7 @@
     <TableLayout xmlns:android="http://schemas.android.com/apk/res/android"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
+        android:background="@mipmap/bj111"
         android:orientation="vertical">
 
         <TableRow
@@ -18,7 +19,14 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="建议用药"
-                android:textColor="@color/blueviolet" />
+                android:background="@color/lightskyblue"
+                android:gravity="center"
+                android:textColor="@color/actionsheet_blue"
+                android:textSize="21dp"
+                android:textStyle="bold"
+                android:layout_marginTop="30dp"
+                android:layout_marginBottom="30dp"
+ />
 
         </TableRow>
 
@@ -30,14 +38,18 @@
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
                 android:text="药名"
-                android:textColor="@color/blueviolet" />
+                android:textSize="20dp"
+                android:layout_marginBottom="10dp"
+                android:textStyle="bold"/>
 
             <TextView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
                 android:text="最低价格"
-                android:textColor="@color/blueviolet" />
+                android:textSize="20dp"
+                android:layout_marginBottom="10dp"
+                android:textStyle="bold" />
 
             <TextView
                 android:layout_width="wrap_content"
@@ -45,7 +57,10 @@
                 android:layout_column="2"
                 android:layout_weight="1"
                 android:text="是否购买"
-                android:textColor="@color/blueviolet" />
+                android:textSize="20dp"
+                android:layout_marginBottom="10dp"
+
+                android:textStyle="bold" />
 
 
         </TableRow>
@@ -56,21 +71,24 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
+                android:layout_marginTop="5dp"
                 android:text="999感冒灵颗粒"
-                android:textColor="@color/blueviolet" />
+                android:textSize="20dp" />
 
             <TextView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
-                android:text="9.5"
-                android:textColor="@color/blueviolet" />
+                android:layout_marginTop="5dp"
+                android:text="¥9.5"
+                android:textSize="20dp" />
 
             <CheckBox
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_column="2"
                 android:layout_weight="1"
+                android:layout_marginTop="5dp"
                 android:checked="false" />
 
         </TableRow>
@@ -81,21 +99,24 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
+                android:layout_marginTop="5dp"
                 android:text="解热止痛散"
-                android:textColor="@color/blueviolet" />
+                android:textSize="20dp" />
 
             <TextView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
-                android:text="9.5"
-                android:textColor="@color/blueviolet" />
+                android:layout_marginTop="5dp"
+                android:text="¥9.5"
+                android:textSize="20dp" />
 
             <CheckBox
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_column="2"
                 android:layout_weight="1"
+                android:layout_marginTop="5dp"
                 android:checked="false" />
 
         </TableRow>
@@ -106,21 +127,24 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
+                android:layout_marginTop="5dp"
                 android:text="斯卫尔"
-                android:textColor="@color/blueviolet" />
+                android:textSize="20dp" />
 
             <TextView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
-                android:text="11.7"
-                android:textColor="@color/blueviolet" />
+                android:layout_marginTop="5dp"
+                android:text="¥11.7"
+                android:textSize="20dp" />
 
             <CheckBox
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_column="2"
                 android:layout_weight="1"
+                android:layout_marginTop="5dp"
                 android:checked="false" />
 
         </TableRow>
@@ -132,21 +156,24 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
+                android:layout_marginTop="5dp"
                 android:text="白加黑"
-                android:textColor="@color/blueviolet" />
+                android:textSize="20dp"/>
 
             <TextView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
-                android:text="10.5"
-                android:textColor="@color/blueviolet" />
+                android:layout_marginTop="5dp"
+                android:text="¥10.5"
+                android:textSize="20dp" />
 
             <CheckBox
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_column="2"
                 android:layout_weight="1"
+                android:layout_marginTop="5dp"
                 android:checked="false" />
 
         </TableRow>
@@ -160,6 +187,7 @@
         android:layout_alignParentBottom="true"
         android:layout_centerHorizontal="true"
         android:layout_marginBottom="10dp"
-        android:text="确定" />
+        android:text="确定"
+        android:background="@color/white"/>
 
 </RelativeLayout>

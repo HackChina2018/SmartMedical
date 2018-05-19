@@ -1,14 +1,15 @@
 <?xml version="1.0" encoding="utf-8"?>
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
-    android:layout_height="match_parent">
+    android:layout_height="match_parent"
+    android:background="@mipmap/bj111">
 
     <TextView
         android:id="@+id/baijiaheishuomingshu"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_centerHorizontal="true"
-        android:layout_marginTop="3dp"
+        android:layout_marginTop="30dp"
         android:background="@color/lightskyblue"
         android:gravity="center"
         android:text="复方感冒灵片"
@@ -21,16 +22,23 @@
         android:id="@+id/shiyingzhneg"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:layout_marginTop="30dp"
         android:layout_below="@id/baijiaheishuomingshu"
+        android:textSize="20dp"
         android:text="适应症：
-辛凉解表，清热解毒。用于风热感冒之发热，微恶风寒，头身痛，口干而渴，鼻塞涕浊，咽喉红肿疼痛，咳嗽，痰黄粘稠。" />
+
+用于风热感冒之发热，微恶风寒，头身痛，口干而渴，鼻塞涕浊，咽喉红肿疼痛，咳嗽，痰黄粘稠。"
+        />
 
     <TextView
         android:id="@+id/yongfayonglang"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:layout_marginTop="30dp"
         android:layout_below="@id/shiyingzhneg"
+        android:textSize="20dp"
         android:text="用法用量：
+
 口服，一次2片，一日3次，两天为一疗程。
 " />
 
@@ -38,7 +46,9 @@
         android:id="@+id/jiagebaijiahei"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:layout_marginTop="30dp"
         android:layout_below="@id/yongfayonglang"
+        android:textSize="20dp"
         android:text="价格：10.5元/盒" />
 
     <TextView
@@ -46,6 +56,8 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_below="@id/jiagebaijiahei"
+        android:layout_marginTop="30dp"
+        android:textSize="20dp"
         android:text="温馨提示：该药品可用于治疗风热感冒" />
 
     <Button
@@ -55,5 +67,6 @@
         android:layout_alignParentBottom="true"
         android:layout_centerHorizontal="true"
         android:layout_marginBottom="10dp"
-        android:text="购买" />
+        android:text="购买"
+        android:background="@color/white"/>
 </RelativeLayout>

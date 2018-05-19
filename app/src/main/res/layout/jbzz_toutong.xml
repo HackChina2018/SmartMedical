@@ -1,7 +1,8 @@
 <?xml version="1.0" encoding="utf-8"?>
 <ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
-    android:layout_height="match_parent">
+    android:layout_height="match_parent"
+    android:background="@mipmap/bj111">
 
     <TableLayout xmlns:android="http://schemas.android.com/apk/res/android"
         android:layout_width="match_parent"
@@ -17,8 +18,15 @@
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="疾病自诊--头痛"
-                android:textColor="@color/blueviolet" />
+                android:layout_centerHorizontal="true"
+                android:layout_marginTop="30dp"
+                android:background="@color/lightskyblue"
+                android:gravity="center"
+                android:text="疾病自诊"
+                android:textColor="@color/actionsheet_blue"
+                android:textSize="21dp"
+                android:textStyle="bold"
+                android:layout_marginBottom="20dp"/>
 
         </TableRow>
 
@@ -28,10 +36,11 @@
                 android:id="@+id/textView65"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="头痛"
-                android:textColor="@color/blueviolet" />
+                android:text="头痛:"
+                android:textSize="20dp" />
 
             <CheckBox
+                android:layout_weight="1"
                 android:id="@+id/checkBox1"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
@@ -40,6 +49,7 @@
                 android:text="无" />
 
             <CheckBox
+                android:layout_weight="1"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_column="3"
@@ -51,10 +61,11 @@
 
         <TableRow>
 
-            <TextView />
+
 
             <CheckBox
                 android:id="@+id/checkBox3"
+                android:layout_weight="1"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_column="2"
@@ -63,6 +74,7 @@
 
             <CheckBox
                 android:id="@+id/checkBox4"
+                android:layout_weight="1"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_column="3"
@@ -73,14 +85,17 @@
         <TableRow>
 
             <TextView
+                android:layout_marginTop="10dp"
                 android:id="@+id/textView66"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="流涕"
-                android:textColor="@color/blueviolet" />
+                android:text="流涕:"
+                android:textSize="20dp" />
 
             <CheckBox
                 android:id="@+id/checkBox5"
+                android:layout_marginTop="10dp"
+                android:layout_weight="1"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_column="2"
@@ -88,7 +103,9 @@
                 android:text="无" />
 
             <CheckBox
+                android:layout_marginTop="10dp"
                 android:id="@+id/checkBox6"
+                android:layout_weight="1"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_column="3"
@@ -101,7 +118,9 @@
             <TextView />
 
             <CheckBox
+
                 android:id="@+id/checkBox7"
+                android:layout_weight="1"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_column="2"
@@ -110,6 +129,7 @@
 
             <CheckBox
                 android:id="@+id/checkBox192"
+                android:layout_weight="1"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_column="2"
@@ -121,13 +141,16 @@
         <TableRow>
 
             <TextView
+                android:layout_marginTop="10dp"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="呕吐"
-                android:textColor="@color/blueviolet" />
+                android:text="呕吐:"
+                android:textSize="20dp" />
 
             <CheckBox
+                android:layout_marginTop="10dp"
                 android:id="@+id/checkBox8"
+                android:layout_weight="1"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_column="2"
@@ -135,7 +158,9 @@
                 android:text="无" />
 
             <CheckBox
+                android:layout_marginTop="10dp"
                 android:id="@+id/checkBox9"
+                android:layout_weight="1"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_column="3"
@@ -150,6 +175,7 @@
 
             <CheckBox
                 android:id="@+id/checkBox10"
+                android:layout_weight="1"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_column="2"
@@ -158,6 +184,7 @@
 
             <CheckBox
                 android:id="@+id/checkBox11"
+                android:layout_weight="1"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_column="3"
@@ -168,21 +195,26 @@
         <TableRow>
 
             <TextView
+                android:layout_marginTop="10dp"
                 android:id="@+id/textView67"
                 android:layout_width="22dp"
                 android:layout_height="wrap_content"
-                android:text="体温"
-                android:textColor="@color/blueviolet" />
+                android:text="体温:"
+                android:textSize="20dp"/>
 
             <CheckBox
+                android:layout_marginTop="10dp"
                 android:id="@+id/checkBox12"
+                android:layout_weight="1"
                 android:layout_width="22dp"
                 android:layout_height="wrap_content"
                 android:layout_column="2"
                 android:checked="false"
-                android:text="less 37" />
+                android:text="37" />
 
             <CheckBox
+                android:layout_marginTop="10dp"
+                android:layout_weight="1"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_column="2"
@@ -195,14 +227,10 @@
 
         <TableRow>
 
-            <TextView
 
-                android:layout_width="22dp"
-                android:layout_height="wrap_content"
-
-                android:textColor="@color/blueviolet" />
 
             <CheckBox
+                android:layout_weight="1"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_column="2"
@@ -210,6 +238,7 @@
                 android:text="38-40" />
 
             <CheckBox
+                android:layout_weight="1"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_column="2"
@@ -227,10 +256,9 @@
                 android:id="@+id/bt_jbcc"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:background="@color/lawngreen"
+                android:background="@color/white"
                 android:text="查询"
-                android:textColor="#ffffff"
-                android:textSize="30dp" />
+                 />
         </TableRow>
     </TableLayout>
 

@@ -20,7 +20,7 @@ public class MaiYao extends Activity {
             @Override
             public void onClick(View v) {
                 new AlertDialog.Builder(MaiYao.this)
-                        .setIcon(R.drawable.ic_icon_second)
+                        .setIcon(R.drawable.logo)
                         .setTitle("购买成功")
                         .setMessage(
                                 "您的药品已购买成功，预计1小时内送到，本应用已自动为您设定吃药提醒，祝您早日康复～")
