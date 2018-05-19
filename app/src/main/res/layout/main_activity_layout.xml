@@ -1,64 +1,83 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="@mipmap/background"
     android:orientation="vertical">
 
     <Button
         android:id="@+id/disease_diagnosis"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="常见疾病诊断" />
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentTop="true"
+        android:layout_marginTop="125dp"
+        android:layout_marginLeft="20dp"
+        android:background="@mipmap/button1"
+        />
 
     <Button
         android:id="@+id/drug_instruction_manual"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="药品说明书查询" />
+        android:layout_alignParentRight="true"
+        android:layout_marginTop="125dp"
+        android:layout_marginRight="20dp"
+        android:background="@mipmap/button2" />
 
     <Button
         android:id="@+id/emergency_call"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="智能呼救" />
+        android:layout_alignParentLeft="true"
+        android:layout_centerInParent="true"
+        android:layout_marginLeft="20dp"
+        android:background="@mipmap/button3" />
 
     <Button
         android:id="@+id/doctor_appointment"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="预约医生" />
+        android:layout_alignParentRight="true"
+        android:layout_centerInParent="true"
+        android:layout_marginRight="20dp"
+        android:background="@mipmap/button4" />
 
     <Button
         android:id="@+id/remote_diagnosis"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="远程诊断" />
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentBottom="true"
+        android:layout_marginLeft="20dp"
+        android:layout_marginBottom="125dp"
+        android:background="@mipmap/button5" />
 
     <Button
         android:id="@+id/medication_remider"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="用药提醒" />
+        android:layout_alignParentRight="true"
+        android:layout_alignParentBottom="true"
+        android:layout_marginRight="20dp"
+        android:layout_marginBottom="125dp"
+        android:background="@mipmap/button6" />
 
     <Button
         android:id="@+id/voice_assistant"
-        android:layout_width="wrap_content"
+        android:layout_width="125px"
         android:layout_height="wrap_content"
-        android:text="语音助手" />
-
+        android:layout_alignParentBottom="true"
+        android:layout_centerHorizontal="true"
+        android:background="@mipmap/mic" />
     <Button
-        android:id="@+id/set_alarm"
-        android:layout_height="wrap_content"
+        android:id="@+id/userer"
+        android:scaleX="0.75"
+        android:scaleY="0.75"
         android:layout_width="wrap_content"
-        android:text="设定闹钟">
-    </Button>
-
-    <Button
-        android:id="@+id/set_ring"
         android:layout_height="wrap_content"
-        android:layout_width="wrap_content"
-        android:text="选择铃声">
-    </Button>
+        android:layout_alignParentTop="true"
+        android:layout_alignParentRight="true"
+        android:background="@mipmap/user" />
 
-
-</LinearLayout>
+</RelativeLayout>

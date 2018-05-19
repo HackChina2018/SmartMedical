@@ -32,7 +32,7 @@ public class ShuomingshuActivity extends Activity {
             @Override
             public void onClick(View v) {
                 String te = String.valueOf(editText.getText());
-                if (te.equals("健胃消食片")) {
+                if (te.equals("1")) {
                     Intent intent = new Intent();
                     intent.setClass(ShuomingshuActivity.this, JainweixiaoshipianShuomingshuActivity.class);
                     ShuomingshuActivity.this.startActivity(intent);

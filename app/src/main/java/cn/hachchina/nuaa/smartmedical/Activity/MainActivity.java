@@ -1,8 +1,7 @@
 package cn.hachchina.nuaa.smartmedical.Activity;
 
+
 import android.app.Activity;
-
-
 import android.app.AlarmManager;
 import android.app.AlertDialog;
 import android.app.DatePickerDialog;
@@ -35,22 +34,31 @@ import java.util.List;
 import cn.hachchina.nuaa.smartmedical.Bean.UserBean;
 import cn.hachchina.nuaa.smartmedical.Bean.ViewBean_MainActivity;
 import cn.hachchina.nuaa.smartmedical.R;
+
 import cn.hachchina.nuaa.smartmedical.Util.FileUtil;
 import cn.hachchina.nuaa.smartmedical.Util.VerifyPermissionUtil;
 
 //import static android.app.PendingIntent.getActivity;
 import static android.app.PendingIntent.getActivity;
 import static cn.hachchina.nuaa.smartmedical.Util.CallPhoneUtil.call;
+import cn.hachchina.nuaa.smartmedical.Util.PhoneUtil;
+import cn.hachchina.nuaa.smartmedical.Util.VerifyPermissionUtil;
+
 
 public class MainActivity extends Activity {
 
     private ViewBean_MainActivity views;
+
+    //private UserBean userBean;
+    public static UserBean userBean;
     Calendar c = Calendar.getInstance();
     private AlertDialog dlgSpecItem;
     private View specItemView;
     private PendingIntent pi;
     private ListView lv;
-    private UserBean userBean;
+//    private UserBean userBean;
+
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -83,8 +91,11 @@ public class MainActivity extends Activity {
         views.IV_MedicationRemider = findViewById(R.id.medication_remider);
         views.IV_RemotDiagnosis = findViewById(R.id.remote_diagnosis);
         views.IV_VoiceAssistant = findViewById(R.id.voice_assistant);
-        views.IV_SetAlarm = findViewById(R.id.set_alarm);
-        views.IV_SetRing = findViewById(R.id.set_ring);
+//        views.IV_SetAlarm = findViewById(R.id.set_alarm);
+//        views.IV_SetRing = findViewById(R.id.set_ring);
+
+        views.IV_UserSelf=findViewById(R.id.userer);
+
 
         views.IV_DoctorAppointment.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -96,9 +107,9 @@ public class MainActivity extends Activity {
         views.IV_DrugInstructionManual.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent = new Intent();
-                intent.setClass(MainActivity.this, ShuomingshuActivity.class);
-                MainActivity.this.startActivity(intent);
+Intent intent=new Intent();
+intent.setClass(MainActivity.this,ShuomingshuActivity.class);
+MainActivity.this.startActivity(intent);
             }
         });
 
@@ -129,6 +140,7 @@ public class MainActivity extends Activity {
             public void onClick(View v) {
 //                PlayRecordUtil playRecordUtil = new PlayRecordUtil();
 //                playRecordUtil.startPlaying();
+//                Toast.makeText(MainActivity.this,"info",Toast.LENGTH_SHORT).show();
                 Intent intent = new Intent();
                 intent.setClass(MainActivity.this, JBZZActivity.class);
                 MainActivity.this.startActivity(intent);
@@ -139,10 +151,31 @@ public class MainActivity extends Activity {
         views.IV_EmergencyCall.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                String s = userBean.getDefault_EmergencyContact_Number();
-                call(s, MainActivity.this);
+               PhoneUtil.callPhone(MainActivity.this, userBean.getDefault_EmergencyContact_Number());
+                for (int i=0;i<10;i++){
+                   // string2Voice(MainActivity.this,"你好");
+                }
+
+
             }
         });
+
+
+
+    }
+
+
+/*
+
+        views.IV_UserSelf.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent();
+                intent.setClass(MainActivity.this, GerenzhongxinActivity.class);
+                MainActivity.this.startActivity(intent);
+            }
+        });
+
 
         views.IV_SetAlarm.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -237,6 +270,7 @@ public class MainActivity extends Activity {
         dlgSpecItem.setCanceledOnTouchOutside(true);
     }
 
+*/
     private void setAlarmDate() {
 
         final Calendar currentDate = Calendar.getInstance();
@@ -256,6 +290,7 @@ public class MainActivity extends Activity {
                 currentDate.get(Calendar.DAY_OF_MONTH));
         datePickerDialog.show();
     }
+
 
     private void setAlarmTime(final int year,
                               final int monthOfYear, final int dayOfMonth) {
@@ -312,5 +347,17 @@ public class MainActivity extends Activity {
 //        MainActivity.this.startActivity(tempIntent);
     }
 
+
+   /* @Override
+    protected void voiceCallback() {
+        // TODO : 获取语音识别的字符串，直接使用resultJson即可
+
+        Toast.makeText(MainActivity.this,"识别结果: "+resultJson,Toast.LENGTH_LONG).show();
+    }
+
+    @Override
+    protected void stringCallback() {
+
+    }*/
 
 }

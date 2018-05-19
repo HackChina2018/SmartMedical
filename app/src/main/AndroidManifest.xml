@@ -32,11 +32,14 @@
     <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION"/>
     <application
         android:allowBackup="true"
-        android:icon="@mipmap/ic_launcher"
+        android:icon="@mipmap/logo"
         android:label="@string/app_name"
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
+        <activity android:name=".Activity.SetDizhictivity"/>
+        <activity android:name=".Activity.SetJinJilianxirenActivity"/>
+        <activity android:name=".Activity.GerenzhongxinActivity"/>
         <activity android:name=".Activity.A_jbzz_toutong" />
         <activity android:name=".Activity.MaiYao" />
         <activity android:name=".Activity.JBZZActivity" />

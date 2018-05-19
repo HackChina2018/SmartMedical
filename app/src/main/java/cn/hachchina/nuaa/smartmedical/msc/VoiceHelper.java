@@ -2,6 +2,7 @@ package cn.hachchina.nuaa.smartmedical.msc;
 
 import android.app.Activity;
 import android.content.Context;
+import android.media.MediaPlayer;
 import android.os.Bundle;
 import android.os.Environment;
 import android.util.Log;
@@ -17,6 +18,8 @@ import com.iflytek.cloud.SpeechUtility;
 import com.iflytek.cloud.SynthesizerListener;
 import com.iflytek.cloud.ui.RecognizerDialog;
 import com.iflytek.cloud.ui.RecognizerDialogListener;
+
+import java.io.IOException;
 
 import cn.hachchina.nuaa.smartmedical.Util.MSCUtils.JsonParser;
 import cn.hachchina.nuaa.smartmedical.Util.MSCUtils.StringUtil;
@@ -74,20 +77,25 @@ public abstract class VoiceHelper extends Activity{
         mTts.setParameter(SpeechConstant.SPEED, "50");//设置语速
         //设置合成音调
         mTts.setParameter(SpeechConstant.PITCH, "50");
-        mTts.setParameter(SpeechConstant.VOLUME, "80");//设置音量，范围0~100
+        mTts.setParameter(SpeechConstant.VOLUME, "100");//设置音量，范围0~100
         mTts.setParameter(SpeechConstant.STREAM_TYPE, "3");
         // 设置播放合成音频打断音乐播放，默认为true
         mTts.setParameter(SpeechConstant.KEY_REQUEST_FOCUS, "true");
+
         // 设置音频保存路径，保存音频格式支持pcm、wav，设置路径为sd卡请注意WRITE_EXTERNAL_STORAGE权限
         // 注：AUDIO_FORMAT参数语记需要更新版本才能生效
         mTts.setParameter(SpeechConstant.AUDIO_FORMAT, "wav");
         String outpath = Environment.getExternalStorageDirectory() + "/msc/"+ StringUtil.getRandomNameString();
         boolean isSuccess = mTts.setParameter(SpeechConstant.TTS_AUDIO_PATH, outpath);
-        Toast.makeText(context, "语音合成 保存音频到本地：\n" + isSuccess, Toast.LENGTH_LONG).show();
+//        Toast.makeText(context, "语音合成 保存音频到本地：\n" + isSuccess, Toast.LENGTH_LONG).show();
         //3.开始合成
         int code = mTts.startSpeaking(text, mSynListener);
         if (code == ErrorCode.SUCCESS){
             savePath = outpath;
+
+                broadcastMedia(savePath);
+
+
             stringCallback();
         } else {
             if (code == ErrorCode.ERROR_COMPONENT_NOT_INSTALLED) {
@@ -154,6 +162,18 @@ public abstract class VoiceHelper extends Activity{
      * 语言合成回调
      */
     abstract protected void stringCallback();
+
+    public static void broadcastMedia(String path){
+        try {
+            MediaPlayer mediaPlayer = new MediaPlayer();
+            mediaPlayer.setDataSource(path);
+            mediaPlayer.prepare();
+            mediaPlayer.start();
+            mediaPlayer.stop();
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+    }
 
     public String getResultJson(){
         return resultJson;
