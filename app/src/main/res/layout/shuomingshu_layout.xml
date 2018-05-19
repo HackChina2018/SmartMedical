@@ -1,0 +1,216 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical">
+
+
+    <TextView
+        android:id="@+id/shuomingshuchaxun"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="3dp"
+        android:background="@color/lightskyblue"
+        android:gravity="center"
+        android:text="药品说明书查询"
+        android:textColor="@color/actionsheet_blue"
+        android:textSize="21dp"
+        android:textStyle="bold" />
+
+    <TableLayout
+        android:id="@+id/yaopinmingcheng"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/shuomingshuchaxun">
+
+        <TableRow>
+
+            <Button
+                android:layout_width="0.0dip"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:text="酚咖片" />
+
+            <Button
+                android:id="@+id/baijiahei"
+                android:layout_width="0.0dip"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:text="复方感冒灵片" />
+
+            <Button
+                android:layout_width="0.0dip"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:text="布洛芬缓释胶囊" />
+        </TableRow>
+
+        <TableRow>
+
+            <Button
+                android:layout_width="0.0dip"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:text="复方酚咖伪麻胶囊" />
+
+            <Button
+                android:layout_width="0.0dip"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:text="布洛芬混悬滴剂" />
+
+            <Button
+                android:layout_width="0.0dip"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:text="复方对乙酰氨基酚片" />
+        </TableRow>
+
+        <TableRow>
+
+            <Button
+                android:layout_width="0.0dip"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:text="贝诺酯片" />
+
+            <Button
+                android:layout_width="0.0dip"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:text="氨咖黄敏胶囊" />
+
+            <Button
+                android:layout_width="0.0dip"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:text="氯芬黄敏片" />
+        </TableRow>
+
+        <TableRow>
+
+            <Button
+                android:layout_width="0.0dip"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:text="参苏丸" />
+
+            <Button
+                android:layout_width="0.0dip"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:text="39感冒灵" />
+
+            <Button
+                android:layout_width="0.0dip"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:text="感冒解毒颗粒" />
+        </TableRow>
+
+        <TableRow>
+
+            <Button
+                android:id="@+id/bt_toutong"
+                android:layout_width="0.0dip"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:text="风寒感冒颗粒" />
+
+            <Button
+                android:id="@+id/bt_touyun"
+                android:layout_width="0.0dip"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:text="感冒疏风颗粒" />
+
+            <Button
+                android:layout_width="0.0dip"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:text="感冒疏风丸" />
+        </TableRow>
+
+        <TableRow>
+
+            <Button
+                android:layout_width="0.0dip"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:text="四季感冒片" />
+
+            <Button
+                android:layout_width="0.0dip"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:text="九味羌活颗粒" />
+
+            <Button
+                android:layout_width="0.0dip"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:text="荆防颗粒" />
+        </TableRow>
+
+        <TableRow>
+
+            <Button
+                android:layout_width="0.0dip"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:text="午时茶颗粒" />
+
+            <Button
+                android:layout_width="0.0dip"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:text="调胃消滞丸" />
+
+            <Button
+                android:layout_width="0.0dip"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:text="杏苏止咳糖浆" />
+        </TableRow>
+
+        <TableRow>
+
+            <Button
+                android:layout_width="0.0dip"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:text="杏苏止咳颗粒" />
+
+            <Button
+                android:layout_width="0.0dip"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:text="伤风停胶囊" />
+
+            <Button
+                android:layout_width="0.0dip"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:text=" 四季感冒片" />
+        </TableRow>
+
+    </TableLayout>
+
+
+    <EditText
+        android:id="@+id/shurudeyaopin"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_above="@+id/chaxunshuruyaopin" />
+
+    <Button
+        android:id="@+id/chaxunshuruyaopin"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+
+        android:layout_centerHorizontal="true"
+        android:text="查询" />
+
+</RelativeLayout>

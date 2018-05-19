@@ -19,6 +19,7 @@ import android.widget.Toast;
 
 import java.util.Calendar;
 
+import cn.hachchina.nuaa.smartmedical.Bean.UserBean;
 import cn.hachchina.nuaa.smartmedical.Bean.ViewBean_MainActivity;
 import cn.hachchina.nuaa.smartmedical.R;
 import cn.hachchina.nuaa.smartmedical.Util.VerifyPermissionUtil;
@@ -30,9 +31,9 @@ public class MainActivity extends Activity {
     private ViewBean_MainActivity views;
     Calendar c = Calendar.getInstance();
     private PendingIntent pi;
-//    c.get(Calendar.YEAR);
-//    c.get(Calendar.MONTH);
-//    c.get(Calendar.DAY_OF_MONTH);
+
+    private UserBean userBean;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -48,6 +49,8 @@ public class MainActivity extends Activity {
             VerifyPermissionUtil verifyPermissionUtil = new VerifyPermissionUtil(MainActivity.this);
             verifyPermissionUtil.RequestPermission();
         }
+
+        userBean = new UserBean();
 
         views = new ViewBean_MainActivity();
 
@@ -70,7 +73,9 @@ public class MainActivity extends Activity {
         views.IV_DrugInstructionManual.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-
+                Intent intent = new Intent();
+                intent.setClass(MainActivity.this, ShuomingshuActivity.class);
+                MainActivity.this.startActivity(intent);
             }
         });
 
@@ -99,7 +104,11 @@ public class MainActivity extends Activity {
         views.IV_DiseaseDiagnosis.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-
+//                PlayRecordUtil playRecordUtil = new PlayRecordUtil();
+//                playRecordUtil.startPlaying();
+                Intent intent = new Intent();
+                intent.setClass(MainActivity.this, JBZZActivity.class);
+                MainActivity.this.startActivity(intent);
             }
         });
 
@@ -107,7 +116,8 @@ public class MainActivity extends Activity {
         views.IV_EmergencyCall.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                call("10086", MainActivity.this);
+                String s = userBean.getDefault_EmergencyContact_Number();
+                call(s, MainActivity.this);
             }
         });
 

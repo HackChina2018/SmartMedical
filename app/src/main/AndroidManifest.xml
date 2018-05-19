@@ -3,6 +3,7 @@
     package="cn.hachchina.nuaa.smartmedical">
 
     <uses-permission android:name="android.permission.CALL_PHONE" />
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
 
     <application
         android:allowBackup="true"
@@ -11,8 +12,13 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".Activity.MainActivity" />
-        <activity android:name=".Activity.LogInActivity">
+        <activity android:name=".Activity.A_jbzz_toutong" />
+        <activity android:name=".Activity.MaiYao" />
+        <activity android:name=".Activity.JBZZActivity" />
+        <activity android:name=".Activity.ShuomingshuActivity" />
+        <activity android:name=".Activity.BaijiaheiShuomingshuActivity" />
+        <activity android:name=".Activity.JainweixiaoshipianShuomingshuActivity" />
+        <activity android:name=".Activity.MainActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
