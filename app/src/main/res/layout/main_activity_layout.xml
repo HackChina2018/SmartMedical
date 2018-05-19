@@ -53,5 +53,12 @@
         android:text="设定闹钟">
     </Button>
 
+    <Button
+        android:id="@+id/set_ring"
+        android:layout_height="wrap_content"
+        android:layout_width="wrap_content"
+        android:text="选择铃声">
+    </Button>
+
 
 </LinearLayout>
