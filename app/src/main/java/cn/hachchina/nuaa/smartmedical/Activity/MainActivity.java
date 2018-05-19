@@ -7,6 +7,7 @@ import android.content.Intent;
 import android.os.Build;
 import android.os.Bundle;
 import android.view.View;
+import android.widget.Toast;
 
 import cn.hachchina.nuaa.smartmedical.Bean.UserBean;
 import cn.hachchina.nuaa.smartmedical.Bean.ViewBean_MainActivity;
@@ -90,6 +91,7 @@ public class MainActivity extends Activity {
             public void onClick(View v) {
 //                PlayRecordUtil playRecordUtil = new PlayRecordUtil();
 //                playRecordUtil.startPlaying();
+                Toast.makeText(MainActivity.this,"info",Toast.LENGTH_SHORT).show();
                 Intent intent = new Intent();
                 intent.setClass(MainActivity.this, JBZZActivity.class);
                 MainActivity.this.startActivity(intent);
