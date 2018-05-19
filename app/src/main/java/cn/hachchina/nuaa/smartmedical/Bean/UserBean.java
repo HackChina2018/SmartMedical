@@ -15,11 +15,22 @@ public class UserBean {
     }
 
     private String Guanxi;//用户名
+
+    public String getDizhi() {
+        return Dizhi;
+    }
+
+    public void setDizhi(String dizhi) {
+        Dizhi = dizhi;
+    }
+
+    private String Dizhi;//用户名
     private String EmergencyContact_Numer;//紧急联系人电话号码
     private String EmergencyContact_Name;//紧急联系人姓名
     private String Default_EmergencyContact_Number="17620688337";//默认第一紧急联系方式为120
     private List<String> Drug_Allergy;//过敏药物
     private List<String> MedicalHistiry;//病史
+
 
 
     public UserBean(String userName, String emergencyContact_Numer, String emergencyContact_Name, List<String> drug_Allergy, List<String> medicalHistiry) {

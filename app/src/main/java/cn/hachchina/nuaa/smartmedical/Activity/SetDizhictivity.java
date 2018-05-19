@@ -17,20 +17,19 @@ import cn.hachchina.nuaa.smartmedical.R;
  * Created by DMRF on 2017/8/9.
  */
 
-public class SetJinJilianxirenActivity extends Activity {
+public class SetDizhictivity extends Activity {
 
 
-    private EditText name;
-    private EditText tel;
-    private EditText relation;
+
+    private EditText dizhi;
     private Button setting_name_cancel;
     private Button setting_name_sure;
 
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.setjinjilianxiren);
-        ActivityManager.getInstance().addActivity(SetJinJilianxirenActivity.this);
+        setContentView(R.layout.setdizhi);
+        ActivityManager.getInstance().addActivity(SetDizhictivity.this);
 
 
         initViews();
@@ -44,7 +43,7 @@ public class SetJinJilianxirenActivity extends Activity {
         setting_name_cancel.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                SetJinJilianxirenActivity.this.finish();
+                SetDizhictivity.this.finish();
             }
         });
 
@@ -52,16 +51,13 @@ public class SetJinJilianxirenActivity extends Activity {
             @Override
             public void onClick(View view) {
 
-                    String n = name.getText().toString();
-                    String r = relation.getText().toString();
-                    String t = tel.getText().toString();
-                    MainActivity.userBean.setEmergencyContact_Name(n);
-                    MainActivity.userBean.setGuanxi(r);
-                    MainActivity.userBean.setEmergencyContact_Numer(t);
-                    Toast.makeText(SetJinJilianxirenActivity.this,"添加紧急联系人成功!",Toast.LENGTH_SHORT).show();
-                    Intent intent = new Intent(SetJinJilianxirenActivity.this, MainActivity.class);
+                    String n = dizhi.getText().toString();
+
+                    MainActivity.userBean.setDizhi(n);
+                    Toast.makeText(SetDizhictivity.this,"设定个人地址成功!",Toast.LENGTH_SHORT).show();
+                    Intent intent = new Intent(SetDizhictivity.this, MainActivity.class);
                     startActivity(intent);
-                    SetJinJilianxirenActivity.this.finish();
+                    SetDizhictivity.this.finish();
             }
         });
 
@@ -70,9 +66,9 @@ public class SetJinJilianxirenActivity extends Activity {
 
     private void initViews() {
 
-        name = findViewById(R.id.setting_name_newname);
-        relation = findViewById(R.id.setting_guanxi);
-        tel = findViewById(R.id.setting_dainhua);
+
+        dizhi=findViewById(R.id.setdizhi);
+
         setting_name_cancel = findViewById(R.id.setting_name_cancel);
         setting_name_sure = findViewById(R.id.setting_name_sure);
 

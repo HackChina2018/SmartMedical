@@ -68,7 +68,7 @@
         android:layout_below="@id/jinjilianxiren_lianxifangshi"
         android:layout_marginTop="10dp"
         android:gravity="left|center_vertical"
-        android:text="   我的病历"
+        android:text="   我的病史"
         android:textSize="20dp" />
 
     <Button

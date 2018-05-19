@@ -35,16 +35,13 @@ public class GerenzhongxinActivity extends Activity {
     }
 
     private void initListener() {
-        xingming.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
 
-            }
-        });
         zhuzhi.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-
+                Intent intent = new Intent();
+                intent.setClass(GerenzhongxinActivity.this, SetDizhictivity.class);
+                GerenzhongxinActivity.this.startActivity(intent);
             }
         });
         jinjilianxiren.setOnClickListener(new View.OnClickListener() {
