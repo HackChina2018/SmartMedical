@@ -1,0 +1,237 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <TableLayout xmlns:android="http://schemas.android.com/apk/res/android"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical">
+
+        <TableRow
+            android:id="@+id/tableRow1"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:gravity="center_horizontal">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="疾病自诊--头痛"
+                android:textColor="@color/blueviolet" />
+
+        </TableRow>
+
+        <TableRow>
+
+            <TextView
+                android:id="@+id/textView65"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="头痛"
+                android:textColor="@color/blueviolet" />
+
+            <CheckBox
+                android:id="@+id/checkBox1"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_column="2"
+                android:checked="false"
+                android:text="无" />
+
+            <CheckBox
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_column="3"
+                android:checked="false"
+                android:text="轻度" />
+
+
+        </TableRow>
+
+        <TableRow>
+
+            <TextView />
+
+            <CheckBox
+                android:id="@+id/checkBox3"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_column="2"
+                android:checked="false"
+                android:text="中度" />
+
+            <CheckBox
+                android:id="@+id/checkBox4"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_column="3"
+                android:checked="false"
+                android:text="重度" />
+        </TableRow>
+
+        <TableRow>
+
+            <TextView
+                android:id="@+id/textView66"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="流涕"
+                android:textColor="@color/blueviolet" />
+
+            <CheckBox
+                android:id="@+id/checkBox5"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_column="2"
+                android:checked="false"
+                android:text="无" />
+
+            <CheckBox
+                android:id="@+id/checkBox6"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_column="3"
+                android:checked="false"
+                android:text="轻度" />
+        </TableRow>
+
+        <TableRow>
+
+            <TextView />
+
+            <CheckBox
+                android:id="@+id/checkBox7"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_column="2"
+                android:checked="false"
+                android:text="中度" />
+
+            <CheckBox
+                android:id="@+id/checkBox192"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_column="2"
+                android:checked="false"
+                android:text="重度" />
+
+        </TableRow>
+
+        <TableRow>
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="呕吐"
+                android:textColor="@color/blueviolet" />
+
+            <CheckBox
+                android:id="@+id/checkBox8"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_column="2"
+                android:checked="false"
+                android:text="无" />
+
+            <CheckBox
+                android:id="@+id/checkBox9"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_column="3"
+                android:checked="false"
+                android:text="轻度" />
+
+        </TableRow>
+
+        <TableRow>
+
+            <TextView />
+
+            <CheckBox
+                android:id="@+id/checkBox10"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_column="2"
+                android:checked="false"
+                android:text="中度" />
+
+            <CheckBox
+                android:id="@+id/checkBox11"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_column="3"
+                android:checked="false"
+                android:text="重度" />
+        </TableRow>
+
+        <TableRow>
+
+            <TextView
+                android:id="@+id/textView67"
+                android:layout_width="22dp"
+                android:layout_height="wrap_content"
+                android:text="体温"
+                android:textColor="@color/blueviolet" />
+
+            <CheckBox
+                android:id="@+id/checkBox12"
+                android:layout_width="22dp"
+                android:layout_height="wrap_content"
+                android:layout_column="2"
+                android:checked="false"
+                android:text="less 37" />
+
+            <CheckBox
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_column="2"
+                android:checked="false"
+                android:singleLine="true"
+                android:text="37-38" />
+
+
+        </TableRow>
+
+        <TableRow>
+
+            <TextView
+
+                android:layout_width="22dp"
+                android:layout_height="wrap_content"
+
+                android:textColor="@color/blueviolet" />
+
+            <CheckBox
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_column="2"
+                android:checked="false"
+                android:text="38-40" />
+
+            <CheckBox
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_column="2"
+                android:checked="false"
+                android:singleLine="true"
+                android:text=">40" />
+
+
+        </TableRow>
+
+
+        <TableRow android:gravity="center">
+
+            <Button
+                android:id="@+id/bt_jbcc"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:background="@color/lawngreen"
+                android:text="查询"
+                android:textColor="#ffffff"
+                android:textSize="30dp" />
+        </TableRow>
+    </TableLayout>
+
+</ScrollView>

@@ -1,0 +1,219 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical">
+
+
+    <TextView
+        android:id="@+id/shuomingshuchaxun"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="3dp"
+        android:background="@color/lightskyblue"
+        android:gravity="center"
+        android:text="药品说明书查询"
+        android:textColor="@color/actionsheet_blue"
+        android:textSize="21dp"
+        android:textStyle="bold" />
+
+    <TableLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/shuomingshuchaxun">
+
+        <TableRow>
+
+            <Button
+                android:id="@+id/bt_toutong"
+                android:layout_width="0.0dip"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:text="酚咖片" />
+
+            <Button
+                android:id="@+id/bt_touyun"
+                android:layout_width="0.0dip"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:text="白加黑" />
+
+            <Button
+                android:id="@+id/bt_bnwt"
+                android:layout_width="0.0dip"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:text="布洛芬缓释胶囊" />
+        </TableRow>
+
+        <TableRow>
+
+            <Button
+                android:id="@+id/bt_toutong"
+                android:layout_width="0.0dip"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:text="酚咖片" />
+
+            <Button
+                android:id="@+id/bt_touyun"
+                android:layout_width="0.0dip"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:text="白加黑" />
+
+            <Button
+                android:id="@+id/bt_bnwt"
+                android:layout_width="0.0dip"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:text="布洛芬缓释胶囊" />
+        </TableRow>
+
+        <TableRow>
+
+            <Button
+                android:id="@+id/bt_toutong"
+                android:layout_width="0.0dip"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:text="酚咖片" />
+
+            <Button
+                android:id="@+id/bt_touyun"
+                android:layout_width="0.0dip"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:text="白加黑" />
+
+            <Button
+                android:id="@+id/bt_bnwt"
+                android:layout_width="0.0dip"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:text="布洛芬缓释胶囊" />
+        </TableRow>
+
+        <TableRow>
+
+            <Button
+                android:id="@+id/bt_toutong"
+                android:layout_width="0.0dip"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:text="酚咖片" />
+
+            <Button
+                android:id="@+id/bt_touyun"
+                android:layout_width="0.0dip"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:text="白加黑" />
+
+            <Button
+                android:id="@+id/bt_bnwt"
+                android:layout_width="0.0dip"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:text="布洛芬缓释胶囊" />
+        </TableRow>
+
+        <TableRow>
+
+            <Button
+                android:id="@+id/bt_toutong"
+                android:layout_width="0.0dip"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:text="酚咖片" />
+
+            <Button
+                android:id="@+id/bt_touyun"
+                android:layout_width="0.0dip"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:text="白加黑" />
+
+            <Button
+                android:id="@+id/bt_bnwt"
+                android:layout_width="0.0dip"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:text="布洛芬缓释胶囊" />
+        </TableRow>
+
+        <TableRow>
+
+            <Button
+                android:id="@+id/bt_toutong"
+                android:layout_width="0.0dip"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:text="酚咖片" />
+
+            <Button
+                android:id="@+id/bt_touyun"
+                android:layout_width="0.0dip"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:text="白加黑" />
+
+            <Button
+                android:id="@+id/bt_bnwt"
+                android:layout_width="0.0dip"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:text="布洛芬缓释胶囊" />
+        </TableRow>
+
+        <TableRow>
+
+            <Button
+                android:id="@+id/bt_toutong"
+                android:layout_width="0.0dip"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:text="酚咖片" />
+
+            <Button
+                android:id="@+id/bt_touyun"
+                android:layout_width="0.0dip"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:text="白加黑" />
+
+            <Button
+                android:id="@+id/bt_bnwt"
+                android:layout_width="0.0dip"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:text="布洛芬缓释胶囊" />
+        </TableRow>
+
+        <TableRow>
+
+            <Button
+                android:id="@+id/bt_toutong"
+                android:layout_width="0.0dip"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:text="酚咖片" />
+
+            <Button
+                android:id="@+id/bt_touyun"
+                android:layout_width="0.0dip"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:text="白加黑" />
+
+            <Button
+                android:id="@+id/bt_bnwt"
+                android:layout_width="0.0dip"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:text="布洛芬缓释胶囊" />
+        </TableRow>
+
+    </TableLayout>
+</RelativeLayout>

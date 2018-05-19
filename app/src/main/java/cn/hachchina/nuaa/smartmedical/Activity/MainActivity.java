@@ -3,6 +3,7 @@ package cn.hachchina.nuaa.smartmedical.Activity;
 import android.app.Activity;
 
 
+import android.content.Intent;
 import android.os.Build;
 import android.os.Bundle;
 import android.view.View;
@@ -87,8 +88,11 @@ public class MainActivity extends Activity {
         views.IV_DiseaseDiagnosis.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                PlayRecordUtil playRecordUtil = new PlayRecordUtil();
-                playRecordUtil.startPlaying();
+//                PlayRecordUtil playRecordUtil = new PlayRecordUtil();
+//                playRecordUtil.startPlaying();
+                Intent intent = new Intent();
+                intent.setClass(MainActivity.this, JBZZActivity.class);
+                MainActivity.this.startActivity(intent);
             }
         });
 
