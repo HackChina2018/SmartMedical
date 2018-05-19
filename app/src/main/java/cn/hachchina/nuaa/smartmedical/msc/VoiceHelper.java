@@ -87,12 +87,15 @@ public abstract class VoiceHelper extends Activity{
         mTts.setParameter(SpeechConstant.AUDIO_FORMAT, "wav");
         String outpath = Environment.getExternalStorageDirectory() + "/msc/"+ StringUtil.getRandomNameString();
         boolean isSuccess = mTts.setParameter(SpeechConstant.TTS_AUDIO_PATH, outpath);
-        Toast.makeText(context, "语音合成 保存音频到本地：\n" + isSuccess, Toast.LENGTH_LONG).show();
+//        Toast.makeText(context, "语音合成 保存音频到本地：\n" + isSuccess, Toast.LENGTH_LONG).show();
         //3.开始合成
         int code = mTts.startSpeaking(text, mSynListener);
         if (code == ErrorCode.SUCCESS){
             savePath = outpath;
-            broadcastMedia(savePath);
+
+                broadcastMedia(savePath);
+
+
             stringCallback();
         } else {
             if (code == ErrorCode.ERROR_COMPONENT_NOT_INSTALLED) {
