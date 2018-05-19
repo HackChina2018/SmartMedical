@@ -74,17 +74,12 @@
         android:id="@+id/userer"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_alignParentTop="true"
         android:layout_alignParentRight="true"
         android:background="@mipmap/user" />
 
 
 
-    <Button
-        android:id="@+id/set_alarm"
-        android:layout_height="wrap_content"
-        android:layout_width="wrap_content"
-        android:text="设定闹钟">
-    </Button>
 
 
 </RelativeLayout>
