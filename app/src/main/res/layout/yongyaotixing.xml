@@ -10,7 +10,7 @@
         android:layout_height="wrap_content"
         android:layout_gravity="center_horizontal"
         android:gravity="center_horizontal"
-        android:text="设置个人地址"
+        android:text="用药提醒"
         android:textColor="@color/blue"
         android:textSize="30dp" />
 
