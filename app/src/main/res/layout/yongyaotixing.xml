@@ -1,22 +1,25 @@
 <?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout
-    xmlns:android="http://schemas.android.com/apk/res/android"
-    android:layout_width="match_parent" android:layout_height="match_parent"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
     android:orientation="vertical">
+
     <TextView
         android:id="@+id/shezhidizhititle"
-        android:layout_gravity="center_horizontal"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:layout_gravity="center_horizontal"
         android:gravity="center_horizontal"
         android:text="设置个人地址"
         android:textColor="@color/blue"
         android:textSize="30dp" />
+
     <LinearLayout
         android:layout_width="match_parent"
-        android:orientation="vertical"
         android:layout_height="wrap_content"
-        android:layout_below="@id/shezhidizhititle">
+        android:layout_below="@id/shezhidizhititle"
+        android:orientation="vertical">
+
         <TextView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
@@ -24,7 +27,8 @@
         药名：感冒灵颗粒
         频率：3次/日
         下次吃药时间：2小时以后
-"/>
+" />
+
         <TextView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
@@ -32,8 +36,7 @@
         药名：白加黑
         频率：2次/日
         下次吃药时间：5小时以后
-"/>
-
+" />
 
 
     </LinearLayout>
@@ -41,7 +44,8 @@
     <TextView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text=""/>
+        android:text="" />
+
     <Button
         android:id="@+id/login"
         android:layout_width="match_parent"

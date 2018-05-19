@@ -23,7 +23,7 @@ public class JainweixiaoshipianShuomingshuActivity extends Activity {
             @Override
             public void onClick(View v) {
                 new AlertDialog.Builder(JainweixiaoshipianShuomingshuActivity.this)
-                        .setIcon(R.drawable.ic_icon_second)
+                        .setIcon(R.drawable.logo)
                         .setTitle("购买成功")
                         .setMessage(
                                 "药品江中牌健胃消食片已购买成功，预计40分钟送到，本应用已自动为您设定吃药提醒，祝您早日康复～")

@@ -1,46 +1,38 @@
 package cn.hachchina.nuaa.smartmedical.Activity;
 
-import android.Manifest;
+
 import android.app.Activity;
-
-
+import android.app.AlarmManager;
+import android.app.DatePickerDialog;
+import android.app.PendingIntent;
+import android.app.Service;
+import android.app.TimePickerDialog;
 import android.content.Intent;
-import android.content.pm.PackageManager;
-import android.net.Uri;
 import android.os.Build;
 import android.os.Bundle;
-<<<<<<< HEAD
-=======
-import android.support.v4.app.ActivityCompat;
 import android.util.Log;
->>>>>>> upstream/master
 import android.view.View;
+import android.widget.DatePicker;
+import android.widget.TimePicker;
 import android.widget.Toast;
+
+import java.util.Calendar;
 
 import cn.hachchina.nuaa.smartmedical.Bean.UserBean;
 import cn.hachchina.nuaa.smartmedical.Bean.ViewBean_MainActivity;
 import cn.hachchina.nuaa.smartmedical.R;
-<<<<<<< HEAD
-import cn.hachchina.nuaa.smartmedical.Util.PlayRecordUtil;
-=======
 import cn.hachchina.nuaa.smartmedical.Util.PhoneUtil;
->>>>>>> upstream/master
 import cn.hachchina.nuaa.smartmedical.Util.VerifyPermissionUtil;
-
-import static cn.hachchina.nuaa.smartmedical.Util.CallPhoneUtil.call;
 
 public class MainActivity extends Activity {
 
     private ViewBean_MainActivity views;
-<<<<<<< HEAD
-    private UserBean userBean;
-=======
+
+    //private UserBean userBean;
     public static UserBean userBean;
     Calendar c = Calendar.getInstance();
     private PendingIntent pi;
 
-
->>>>>>> upstream/master
 
 
     @Override
@@ -69,11 +61,10 @@ public class MainActivity extends Activity {
         views.IV_MedicationRemider = findViewById(R.id.medication_remider);
         views.IV_RemotDiagnosis = findViewById(R.id.remote_diagnosis);
         views.IV_VoiceAssistant = findViewById(R.id.voice_assistant);
-<<<<<<< HEAD
-=======
-        views.IV_UserSelf=findViewById(R.id.userself);
-        views.IV_SetAlarm = findViewById(R.id.set_alarm);
->>>>>>> upstream/master
+
+        views.IV_UserSelf=findViewById(R.id.userer);
+
+
 
 
         views.IV_DoctorAppointment.setOnClickListener(new View.OnClickListener() {
@@ -86,7 +77,9 @@ public class MainActivity extends Activity {
         views.IV_DrugInstructionManual.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-
+Intent intent=new Intent();
+intent.setClass(MainActivity.this,ShuomingshuActivity.class);
+MainActivity.this.startActivity(intent);
             }
         });
 
@@ -128,21 +121,21 @@ public class MainActivity extends Activity {
         views.IV_EmergencyCall.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-//                PhoneUtil.callPhone(MainActivity.this, userBean.getDefault_EmergencyContact_Number());
+               PhoneUtil.callPhone(MainActivity.this, userBean.getDefault_EmergencyContact_Number());
                 for (int i=0;i<10;i++){
-                    string2Voice(MainActivity.this,"你好");
+                   // string2Voice(MainActivity.this,"你好");
                 }
 
 
             }
         });
 
-<<<<<<< HEAD
+
 
     }
 
 
-=======
+/*
 
         views.IV_UserSelf.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -165,6 +158,7 @@ public class MainActivity extends Activity {
 
     }
 
+*/
     private void setAlarmDate() {
 
         final Calendar currentDate = Calendar.getInstance();
@@ -242,7 +236,7 @@ public class MainActivity extends Activity {
     }
 
 
-    @Override
+   /* @Override
     protected void voiceCallback() {
         // TODO : 获取语音识别的字符串，直接使用resultJson即可
 
@@ -252,6 +246,6 @@ public class MainActivity extends Activity {
     @Override
     protected void stringCallback() {
 
-    }
->>>>>>> upstream/master
+    }*/
+
 }

@@ -25,7 +25,8 @@
                 android:text="疾病自诊"
                 android:textColor="@color/actionsheet_blue"
                 android:textSize="21dp"
-                android:textStyle="bold" />
+                android:textStyle="bold"
+                android:layout_marginBottom="20dp"/>
 
         </TableRow>
 
@@ -39,6 +40,7 @@
                 android:textSize="20dp" />
 
             <CheckBox
+                android:layout_weight="1"
                 android:id="@+id/checkBox1"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
@@ -47,6 +49,7 @@
                 android:text="无" />
 
             <CheckBox
+                android:layout_weight="1"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_column="3"
@@ -58,10 +61,11 @@
 
         <TableRow>
 
-            <TextView />
+
 
             <CheckBox
                 android:id="@+id/checkBox3"
+                android:layout_weight="1"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_column="2"
@@ -70,6 +74,7 @@
 
             <CheckBox
                 android:id="@+id/checkBox4"
+                android:layout_weight="1"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_column="3"
@@ -80,6 +85,7 @@
         <TableRow>
 
             <TextView
+                android:layout_marginTop="10dp"
                 android:id="@+id/textView66"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
@@ -88,6 +94,8 @@
 
             <CheckBox
                 android:id="@+id/checkBox5"
+                android:layout_marginTop="10dp"
+                android:layout_weight="1"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_column="2"
@@ -95,7 +103,9 @@
                 android:text="无" />
 
             <CheckBox
+                android:layout_marginTop="10dp"
                 android:id="@+id/checkBox6"
+                android:layout_weight="1"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_column="3"
@@ -108,7 +118,9 @@
             <TextView />
 
             <CheckBox
+
                 android:id="@+id/checkBox7"
+                android:layout_weight="1"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_column="2"
@@ -117,6 +129,7 @@
 
             <CheckBox
                 android:id="@+id/checkBox192"
+                android:layout_weight="1"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_column="2"
@@ -128,13 +141,16 @@
         <TableRow>
 
             <TextView
+                android:layout_marginTop="10dp"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="呕吐:"
                 android:textSize="20dp" />
 
             <CheckBox
+                android:layout_marginTop="10dp"
                 android:id="@+id/checkBox8"
+                android:layout_weight="1"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_column="2"
@@ -142,7 +158,9 @@
                 android:text="无" />
 
             <CheckBox
+                android:layout_marginTop="10dp"
                 android:id="@+id/checkBox9"
+                android:layout_weight="1"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_column="3"
@@ -157,6 +175,7 @@
 
             <CheckBox
                 android:id="@+id/checkBox10"
+                android:layout_weight="1"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_column="2"
@@ -165,6 +184,7 @@
 
             <CheckBox
                 android:id="@+id/checkBox11"
+                android:layout_weight="1"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_column="3"
@@ -175,6 +195,7 @@
         <TableRow>
 
             <TextView
+                android:layout_marginTop="10dp"
                 android:id="@+id/textView67"
                 android:layout_width="22dp"
                 android:layout_height="wrap_content"
@@ -182,14 +203,18 @@
                 android:textSize="20dp"/>
 
             <CheckBox
+                android:layout_marginTop="10dp"
                 android:id="@+id/checkBox12"
+                android:layout_weight="1"
                 android:layout_width="22dp"
                 android:layout_height="wrap_content"
                 android:layout_column="2"
                 android:checked="false"
-                android:text="<37" />
+                android:text="37" />
 
             <CheckBox
+                android:layout_marginTop="10dp"
+                android:layout_weight="1"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_column="2"
@@ -203,7 +228,9 @@
         <TableRow>
 
 
+
             <CheckBox
+                android:layout_weight="1"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_column="2"
@@ -211,6 +238,7 @@
                 android:text="38-40" />
 
             <CheckBox
+                android:layout_weight="1"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_column="2"
@@ -230,7 +258,6 @@
                 android:layout_height="wrap_content"
                 android:background="@color/white"
                 android:text="查询"
-
                  />
         </TableRow>
     </TableLayout>

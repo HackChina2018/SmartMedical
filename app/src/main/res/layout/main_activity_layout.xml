@@ -11,7 +11,7 @@
         android:layout_height="wrap_content"
         android:layout_alignParentLeft="true"
         android:layout_alignParentTop="true"
-        android:layout_marginTop="100dp"
+        android:layout_marginTop="125dp"
         android:layout_marginLeft="20dp"
         android:background="@mipmap/button1"
         />
@@ -21,7 +21,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_alignParentRight="true"
-        android:layout_marginTop="100dp"
+        android:layout_marginTop="125dp"
         android:layout_marginRight="20dp"
         android:background="@mipmap/button2" />
 
@@ -50,7 +50,7 @@
         android:layout_alignParentLeft="true"
         android:layout_alignParentBottom="true"
         android:layout_marginLeft="20dp"
-        android:layout_marginBottom="110dp"
+        android:layout_marginBottom="125dp"
         android:background="@mipmap/button5" />
 
     <Button
@@ -60,18 +60,20 @@
         android:layout_alignParentRight="true"
         android:layout_alignParentBottom="true"
         android:layout_marginRight="20dp"
-        android:layout_marginBottom="110dp"
+        android:layout_marginBottom="125dp"
         android:background="@mipmap/button6" />
 
     <Button
         android:id="@+id/voice_assistant"
-        android:layout_width="100px"
-        android:layout_height="100px"
+        android:layout_width="125px"
+        android:layout_height="wrap_content"
         android:layout_alignParentBottom="true"
         android:layout_centerHorizontal="true"
         android:background="@mipmap/mic" />
     <Button
         android:id="@+id/userer"
+        android:scaleX="0.75"
+        android:scaleY="0.75"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_alignParentTop="true"
@@ -80,7 +82,6 @@
 
 
 
-<<<<<<< HEAD
 
 =======
 >>>>>>> upstream/master
