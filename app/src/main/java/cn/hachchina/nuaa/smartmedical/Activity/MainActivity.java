@@ -6,8 +6,8 @@ import android.app.Activity;
 import android.os.Build;
 import android.os.Bundle;
 import android.view.View;
-import android.widget.Button;
 
+import cn.hachchina.nuaa.smartmedical.Bean.ViewBean_MainActivity;
 import cn.hachchina.nuaa.smartmedical.R;
 import cn.hachchina.nuaa.smartmedical.Util.VerifyPermissionUtil;
 
@@ -15,22 +15,79 @@ import static cn.hachchina.nuaa.smartmedical.Util.CallPhoneUtil.call;
 
 public class MainActivity extends Activity {
 
-    private Button button;
-    private VerifyPermissionUtil verifyPermissionUtil;
+    private ViewBean_MainActivity views;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.main_activity_layout);
+        init();
 
+
+    }
+
+    private void init() {
         if (Build.VERSION.SDK_INT >= 23) {
             VerifyPermissionUtil verifyPermissionUtil = new VerifyPermissionUtil(MainActivity.this);
             verifyPermissionUtil.RequestPermission();
         }
 
+        views = new ViewBean_MainActivity();
 
-        button = findViewById(R.id.emergency_call);
-        button.setOnClickListener(new View.OnClickListener() {
+        views.IV_DiseaseDiagnosis = findViewById(R.id.disease_diagnosis);
+        views.IV_DoctorAppointment = findViewById(R.id.doctor_appointment);
+        views.IV_DrugInstructionManual = findViewById(R.id.drug_instruction_manual);
+        views.IV_EmergencyCall = findViewById(R.id.emergency_call);
+        views.IV_MedicationRemider = findViewById(R.id.medication_remider);
+        views.IV_RemotDiagnosis = findViewById(R.id.remote_diagnosis);
+        views.IV_VoiceAssistant = findViewById(R.id.voice_assistant);
+
+        views.IV_DoctorAppointment.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+
+            }
+        });
+
+        views.IV_DrugInstructionManual.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+
+            }
+        });
+
+
+        views.IV_MedicationRemider.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+
+            }
+        });
+
+        views.IV_RemotDiagnosis.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+
+            }
+        });
+
+        views.IV_VoiceAssistant.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+
+            }
+        });
+
+        views.IV_DiseaseDiagnosis.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+
+            }
+        });
+
+
+        views.IV_EmergencyCall.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 call("10086", MainActivity.this);
