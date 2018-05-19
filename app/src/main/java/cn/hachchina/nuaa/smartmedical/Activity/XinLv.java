@@ -11,6 +11,8 @@ import org.achartengine.model.XYSeries;
 import org.achartengine.renderer.XYMultipleSeriesRenderer;
 import org.achartengine.renderer.XYSeriesRenderer;
 
+import android.animation.AnimatorSet;
+import android.animation.ObjectAnimator;
 import android.annotation.SuppressLint;
 import android.app.Activity;
 import android.content.Context;
@@ -28,9 +30,10 @@ import android.util.Log;
 import android.view.SurfaceHolder;
 import android.view.SurfaceView;
 import android.view.ViewGroup.LayoutParams;
+import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.TextView;
-import android.widget.Toast;
+
 
 import cn.hachchina.nuaa.smartmedical.R;
 import cn.hachchina.nuaa.smartmedical.Util.ImageProcessing;
@@ -73,6 +76,7 @@ public class XinLv extends Activity {
 	private static Camera camera = null;
 	//private static View image = null;
 	private static TextView text = null;
+	private static ImageView xiner = null;
 
 	private static WakeLock wakeLock = null;
 	private static int averageIndex = 0;
@@ -103,6 +107,7 @@ public class XinLv extends Activity {
 	private static double beats = 0;
 	//开始时间
 	private static long startTime = 0;
+	private static AnimatorSet set = new AnimatorSet();
 
 	@Override
 	public void onCreate(Bundle savedInstanceState) {
@@ -174,6 +179,15 @@ public class XinLv extends Activity {
 
 		PowerManager pm = (PowerManager) getSystemService(Context.POWER_SERVICE);
 		wakeLock = pm.newWakeLock(PowerManager.FULL_WAKE_LOCK, "DoNotDimScreen");
+		xiner=findViewById(R.id.xintiao);
+		ObjectAnimator anim1 = ObjectAnimator.ofFloat(xiner,"scaleX",1.2f,0.8f);
+		anim1.setRepeatCount(-1);
+		ObjectAnimator anim2 = ObjectAnimator.ofFloat(xiner,"scaleY",1.2f,0.8f);
+		anim2.setRepeatCount(-1);
+		 set = new AnimatorSet();
+		set.play(anim1).with(anim2);
+		set.setDuration(1000);
+
 	}
 
 	//	曲线
@@ -252,7 +266,7 @@ public class XinLv extends Activity {
 			flag=1;
 			if(gx<200){
 				if(hua[20]>1){
-					Toast.makeText(XinLv.this, "请用您的指尖盖住摄像头镜头！", Toast.LENGTH_SHORT).show();
+					//Toast.makeText(XinLv.this, "请用您的指尖盖住摄像头镜头！", Toast.LENGTH_SHORT).show();
 					hua[20]=0;}
 				hua[20]++;
 				return;}
@@ -415,6 +429,7 @@ public class XinLv extends Activity {
 				}
 				int beatsAvg = (beatsArrayAvg / beatsArrayCnt);
 				text.setText(String.valueOf(beatsAvg)+"次/分");
+				set.start();
 				//获取系统时间（ms）
 				startTime = System.currentTimeMillis();
 				beats = 0;

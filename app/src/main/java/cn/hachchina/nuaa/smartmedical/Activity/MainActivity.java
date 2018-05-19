@@ -295,7 +295,12 @@ public class MainActivity extends VoiceHelper  {
         }else if (resultJson.contains("体温")||resultJson.contains("度")){
             Intent intent = new Intent(MainActivity.this, MaiYao.class);
             startActivity(intent);
+        }else if (resultJson.contains("心率")||resultJson.contains("检测")){
+            Intent intent = new Intent();
+            intent.setClass(MainActivity.this, XinLv.class);
+            MainActivity.this.startActivity(intent);
         }
+
     }
 
     @Override

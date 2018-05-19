@@ -21,32 +21,37 @@
         android:orientation="vertical"></LinearLayout>
 
     <RelativeLayout
-        android:layout_marginTop="20dp"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content">
+        android:layout_height="wrap_content"
+        android:layout_marginTop="50dp">
+
+        <ImageView
+            android:id="@+id/xintiao"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerHorizontal="true"
+            android:background="@mipmap/xiner" />
 
         <TextView
-
             android:id="@+id/xinlvtxt"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:layout_below="@id/xintiao"
             android:layout_centerHorizontal="true"
             android:text="心率"
             android:textColor="#ffffff"
-            android:textSize="30dp" />
+            android:textSize="20dp" />
 
         <TextView
-            android:textSize="30dp"
-            android:layout_below="@id/xinlvtxt"
-            android:layout_centerHorizontal="true"
             android:id="@+id/text"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:layout_below="@id/xinlvtxt"
+            android:layout_centerHorizontal="true"
             android:layout_marginLeft="50dip"
             android:layout_weight="1"
-            android:textColor="#ffffff"></TextView>
-
-
+            android:textColor="#ffffff"
+            android:textSize="20dp"></TextView>
 
 
     </RelativeLayout>
