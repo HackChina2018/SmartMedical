@@ -54,6 +54,7 @@
             </intent-filter>
         </activity>
         <activity android:name=".Activity.AlarmActivity"></activity>
+        <activity android:name=".Activity.RingActivity"></activity>
 
 
     </application>

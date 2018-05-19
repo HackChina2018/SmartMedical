@@ -7,13 +7,18 @@ import android.app.AlertDialog;
 import android.app.DatePickerDialog;
 
 
+import android.app.KeyguardManager;
 import android.app.PendingIntent;
 import android.app.Service;
 import android.app.TimePickerDialog;
+import android.content.Context;
+import android.content.DialogInterface;
 import android.content.Intent;
+import android.media.MediaPlayer;
 import android.os.Build;
 import android.os.Bundle;
 import android.os.Environment;
+import android.os.PowerManager;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -58,6 +63,7 @@ public class MainActivity extends Activity {
     private ListView lv;
 //    private UserBean userBean;
 
+    private MediaPlayer mediaPlayer;
 
 
     @Override
@@ -65,6 +71,7 @@ public class MainActivity extends Activity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.main_activity_layout);
         init();
+
 
     }
 
@@ -117,7 +124,9 @@ MainActivity.this.startActivity(intent);
         views.IV_MedicationRemider.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-
+                Intent intent = new Intent();
+                intent.setClass(MainActivity.this, AlarmActivity.class);
+                MainActivity.this.startActivity(intent);
             }
         });
 
@@ -271,25 +280,25 @@ MainActivity.this.startActivity(intent);
     }
 
 */
-    private void setAlarmDate() {
-
-        final Calendar currentDate = Calendar.getInstance();
-        DatePickerDialog datePickerDialog = new DatePickerDialog(
-                MainActivity.this, new DatePickerDialog.OnDateSetListener() {
-            @Override
-            public void onDateSet(DatePicker view, int year,
-                                  int monthOfYear, int dayOfMonth) {
-
-                c.set(Calendar.YEAR, year);
-                c.set(Calendar.MONTH, monthOfYear);
-                c.set(Calendar.DAY_OF_MONTH, dayOfMonth);
-                setAlarmTime(year,monthOfYear,dayOfMonth);
-            }
-        }, currentDate.get(Calendar.YEAR),
-                currentDate.get(Calendar.MONTH),
-                currentDate.get(Calendar.DAY_OF_MONTH));
-        datePickerDialog.show();
-    }
+//    private void setAlarmDate() {
+//
+//        final Calendar currentDate = Calendar.getInstance();
+//        DatePickerDialog datePickerDialog = new DatePickerDialog(
+//                MainActivity.this, new DatePickerDialog.OnDateSetListener() {
+//            @Override
+//            public void onDateSet(DatePicker view, int year,
+//                                  int monthOfYear, int dayOfMonth) {
+//
+//                c.set(Calendar.YEAR, year);
+//                c.set(Calendar.MONTH, monthOfYear);
+//                c.set(Calendar.DAY_OF_MONTH, dayOfMonth);
+//                setAlarmTime(year,monthOfYear,dayOfMonth);
+//            }
+//        }, currentDate.get(Calendar.YEAR),
+//                currentDate.get(Calendar.MONTH),
+//                currentDate.get(Calendar.DAY_OF_MONTH));
+//        datePickerDialog.show();
+//    }
 
 
     private void setAlarmTime(final int year,
