@@ -44,9 +44,10 @@ import static android.app.PendingIntent.getActivity;
 
 import cn.hachchina.nuaa.smartmedical.Util.PhoneUtil;
 import cn.hachchina.nuaa.smartmedical.Util.VerifyPermissionUtil;
+import cn.hachchina.nuaa.smartmedical.msc.VoiceHelper;
 
 
-public class MainActivity extends Activity {
+public class MainActivity extends VoiceHelper  {
 
     private ViewBean_MainActivity views;
 
@@ -161,7 +162,7 @@ public class MainActivity extends Activity {
         views.IV_VoiceAssistant.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-
+                voice2String(MainActivity.this);
             }
         });
 
@@ -282,7 +283,7 @@ public class MainActivity extends Activity {
     }
 
 
-   /* @Override
+    @Override
     protected void voiceCallback() {
         // TODO : 获取语音识别的字符串，直接使用resultJson即可
 
@@ -300,7 +301,7 @@ public class MainActivity extends Activity {
     @Override
     protected void stringCallback() {
 
-    }*/
+    }
 
 
 }
