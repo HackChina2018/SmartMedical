@@ -7,8 +7,10 @@ import android.os.Build;
 import android.os.Bundle;
 import android.view.View;
 
+import cn.hachchina.nuaa.smartmedical.Bean.UserBean;
 import cn.hachchina.nuaa.smartmedical.Bean.ViewBean_MainActivity;
 import cn.hachchina.nuaa.smartmedical.R;
+import cn.hachchina.nuaa.smartmedical.Util.PlayRecordUtil;
 import cn.hachchina.nuaa.smartmedical.Util.VerifyPermissionUtil;
 
 import static cn.hachchina.nuaa.smartmedical.Util.CallPhoneUtil.call;
@@ -16,6 +18,7 @@ import static cn.hachchina.nuaa.smartmedical.Util.CallPhoneUtil.call;
 public class MainActivity extends Activity {
 
     private ViewBean_MainActivity views;
+    private UserBean userBean;
 
 
     @Override
@@ -32,6 +35,8 @@ public class MainActivity extends Activity {
             VerifyPermissionUtil verifyPermissionUtil = new VerifyPermissionUtil(MainActivity.this);
             verifyPermissionUtil.RequestPermission();
         }
+
+        userBean = new UserBean();
 
         views = new ViewBean_MainActivity();
 
@@ -82,7 +87,8 @@ public class MainActivity extends Activity {
         views.IV_DiseaseDiagnosis.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-
+                PlayRecordUtil playRecordUtil = new PlayRecordUtil();
+                playRecordUtil.startPlaying();
             }
         });
 
@@ -90,7 +96,8 @@ public class MainActivity extends Activity {
         views.IV_EmergencyCall.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                call("10086", MainActivity.this);
+                String s = userBean.getDefault_EmergencyContact_Number();
+                call(s, MainActivity.this);
             }
         });
 
