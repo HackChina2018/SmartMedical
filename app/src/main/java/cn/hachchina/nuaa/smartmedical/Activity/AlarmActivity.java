@@ -2,6 +2,7 @@ package cn.hachchina.nuaa.smartmedical.Activity;
 
 import android.app.Activity;
 import android.app.AlertDialog;
+import android.app.KeyguardManager;
 import android.content.Context;
 import android.content.DialogInterface;
 import android.media.MediaPlayer;
@@ -27,23 +28,17 @@ public class AlarmActivity extends Activity {
         setContentView(R.layout.alarm_activity_layout);
 
         PowerManager pm = (PowerManager) getSystemService(Context.POWER_SERVICE);
-        PowerManager.WakeLock w1 = pm.newWakeLock(PowerManager.SCREEN_DIM_WAKE_LOCK, "MyTag");
+        PowerManager.WakeLock w1 = pm.newWakeLock(PowerManager.ACQUIRE_CAUSES_WAKEUP
+                | PowerManager.FULL_WAKE_LOCK, "AlertDialog");
         w1.acquire();
-//在这个过程,屏幕会保持光亮!
-        w1.release();
-//        mWakelock = pm.newWakeLock(PowerManager.ACQUIRE_CAUSES_WAKEUP
-//                | PowerManager.FULL_WAKE_LOCK, "AlertDialog");
-//        mWakelock.acquire();
-        Log.i("alarm:", "alarm....");
-//        PowerManager pm = (PowerManager) getSystemService(Context.POWER_SERVICE);
-//        mWakelock = pm.newWakeLock(PowerManager.ACQUIRE_CAUSES_WAKEUP
-//                | PowerManager.FULL_WAKE_LOCK, "AlertDialog");
-//        mWakelock.acquire();
 
-//        PowerManager pm = (PowerManager)getSystemService(POWER_SERVICE);
-//        mWakelock = pm.newWakeLock(PowerManager.ACQUIRE_CAUSES_WAKEUP |PowerManager.SCREEN_DIM_WAKE_LOCK, "SimpleTimer");
-//        mWakelock.acquire();
-//        mWakelock.release();
+        KeyguardManager keyguardManager = (KeyguardManager) getSystemService(KEYGUARD_SERVICE);
+        KeyguardManager.KeyguardLock keyguardLock = keyguardManager
+                .newKeyguardLock("AlertDialog");
+        keyguardLock.disableKeyguard();
+
+//        Log.i("alarm:", "alarm....");
+
 
         mediaPlayer = mediaPlayer.create(this,R.raw.pig);
         mediaPlayer.start();
