@@ -50,6 +50,7 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
+        <activity android:name=".Activity.Addyongyaotixing"/>
         <activity android:name=".Activity.XinLv"/>
         <activity android:name=".Activity.GuaHaoActivity"/>
         <activity android:name=".Activity.SetDizhictivity"/>

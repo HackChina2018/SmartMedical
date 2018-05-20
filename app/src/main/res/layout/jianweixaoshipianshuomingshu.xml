@@ -2,7 +2,8 @@
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@mipmap/bj111">
+    android:background="@mipmap/bj111"
+    android:paddingLeft="20dp">
 
     <TextView
         android:id="@+id/baijiaheishuomingshuas"
@@ -58,5 +59,6 @@
         android:layout_centerHorizontal="true"
         android:layout_marginBottom="10dp"
         android:text="购买"
+        android:alpha="0.5"
         android:background="@color/white"/>
 </RelativeLayout>

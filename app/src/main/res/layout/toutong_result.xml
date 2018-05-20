@@ -1,13 +1,15 @@
 <?xml version="1.0" encoding="utf-8"?>
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
-    android:layout_height="match_parent">
+    android:layout_height="match_parent"
+    >
 
     <TableLayout xmlns:android="http://schemas.android.com/apk/res/android"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:background="@mipmap/bj111"
-        android:orientation="vertical">
+        android:orientation="vertical"
+        android:paddingLeft="20dp">
 
         <TableRow
             android:id="@+id/tableRow1"
@@ -181,13 +183,14 @@
     </TableLayout>
 
     <Button
+        android:alpha="0.5"
         android:id="@+id/bt_ok_toutong"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_alignParentBottom="true"
         android:layout_centerHorizontal="true"
         android:layout_marginBottom="10dp"
-        android:text="确定"
+        android:text="购买"
         android:background="@color/white"/>
 
 </RelativeLayout>

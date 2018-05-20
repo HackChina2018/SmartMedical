@@ -60,7 +60,9 @@ public class GerenzhongxinActivity extends Activity {
         yongyaotixing.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-
+                Intent intent = new Intent();
+                intent.setClass(GerenzhongxinActivity.this, Addyongyaotixing.class);
+                GerenzhongxinActivity.this.startActivity(intent);
             }
         });
     }
