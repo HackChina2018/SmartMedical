@@ -188,6 +188,8 @@ public class MainActivity extends VoiceHelper  {
             Intent intent = new Intent();
             intent.setClass(MainActivity.this, XinLv.class);
             MainActivity.this.startActivity(intent);
+        }else if (resultJson.contains("紧急") || resultJson.contains("呼叫") || resultJson.contains("不行") || resultJson.contains("救护车")){
+            PhoneUtil.callPhone(MainActivity.this, userBean.getDefault_EmergencyContact_Number());
         }
 
     }

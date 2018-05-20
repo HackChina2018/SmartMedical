@@ -27,7 +27,7 @@ public class UserBean {
     private String Dizhi;//用户名
     private String EmergencyContact_Numer;//紧急联系人电话号码
     private String EmergencyContact_Name;//紧急联系人姓名
-    private String Default_EmergencyContact_Number="15651808915";//默认第一紧急联系方式为120
+    private String Default_EmergencyContact_Number="17351015423";//默认第一紧急联系方式为120
     private List<String> Drug_Allergy;//过敏药物
     private List<String> MedicalHistiry;//病史
 
@@ -37,7 +37,7 @@ public class UserBean {
         UserName = userName;
         EmergencyContact_Numer = emergencyContact_Numer;
         EmergencyContact_Name = emergencyContact_Name;
-        Default_EmergencyContact_Number = "15651808915";
+        Default_EmergencyContact_Number = "17351015423";
         Drug_Allergy = drug_Allergy;
         MedicalHistiry = medicalHistiry;
     }
@@ -100,6 +100,6 @@ public class UserBean {
     }
 
     public UserBean() {
-        Default_EmergencyContact_Number = "15651808915";
+        Default_EmergencyContact_Number = "17351015423";
     }
 }
