@@ -11,6 +11,8 @@ import org.achartengine.model.XYSeries;
 import org.achartengine.renderer.XYMultipleSeriesRenderer;
 import org.achartengine.renderer.XYSeriesRenderer;
 
+import android.animation.AnimatorSet;
+import android.animation.ObjectAnimator;
 import android.annotation.SuppressLint;
 import android.app.Activity;
 import android.content.Context;
@@ -28,9 +30,10 @@ import android.util.Log;
 import android.view.SurfaceHolder;
 import android.view.SurfaceView;
 import android.view.ViewGroup.LayoutParams;
+import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.TextView;
-import android.widget.Toast;
+
 
 import cn.hachchina.nuaa.smartmedical.R;
 import cn.hachchina.nuaa.smartmedical.Util.ImageProcessing;
@@ -73,8 +76,8 @@ public class XinLv extends Activity {
 	private static Camera camera = null;
 	//private static View image = null;
 	private static TextView text = null;
-	private static TextView text1 = null;
-	private static TextView text2 = null;
+	private static ImageView xiner = null;
+
 	private static WakeLock wakeLock = null;
 	private static int averageIndex = 0;
 	private static final int averageArraySize = 4;
@@ -104,6 +107,7 @@ public class XinLv extends Activity {
 	private static double beats = 0;
 	//开始时间
 	private static long startTime = 0;
+	private static AnimatorSet set = new AnimatorSet();
 
 	@Override
 	public void onCreate(Bundle savedInstanceState) {
@@ -172,10 +176,18 @@ public class XinLv extends Activity {
 		previewHolder.setType(SurfaceHolder.SURFACE_TYPE_PUSH_BUFFERS);
 		//		image = findViewById(R.id.image);
 		text = (TextView) findViewById(R.id.text);
-		text1 = (TextView) findViewById(R.id.text1);
-		text2 = (TextView) findViewById(R.id.text2);
+
 		PowerManager pm = (PowerManager) getSystemService(Context.POWER_SERVICE);
 		wakeLock = pm.newWakeLock(PowerManager.FULL_WAKE_LOCK, "DoNotDimScreen");
+		xiner=findViewById(R.id.xintiao);
+		ObjectAnimator anim1 = ObjectAnimator.ofFloat(xiner,"scaleX",1.2f,0.8f);
+		anim1.setRepeatCount(-1);
+		ObjectAnimator anim2 = ObjectAnimator.ofFloat(xiner,"scaleY",1.2f,0.8f);
+		anim2.setRepeatCount(-1);
+		 set = new AnimatorSet();
+		set.play(anim1).with(anim2);
+		set.setDuration(1000);
+
 	}
 
 	//	曲线
@@ -254,7 +266,7 @@ public class XinLv extends Activity {
 			flag=1;
 			if(gx<200){
 				if(hua[20]>1){
-					Toast.makeText(XinLv.this, "请用您的指尖盖住摄像头镜头！", Toast.LENGTH_SHORT).show();
+					//Toast.makeText(XinLv.this, "请用您的指尖盖住摄像头镜头！", Toast.LENGTH_SHORT).show();
 					hua[20]=0;}
 				hua[20]++;
 				return;}
@@ -347,7 +359,7 @@ public class XinLv extends Activity {
 			//图像处理
 			int imgAvg = ImageProcessing.decodeYUV420SPtoRedAvg(data.clone(),height,width);
 			gx=imgAvg;
-			text1.setText("平均像素值是"+String.valueOf(imgAvg));
+			//text1.setText("平均像素值是"+String.valueOf(imgAvg));
 			//像素平均值imgAvg,日志
 			//Log.i(TAG, "imgAvg=" + imgAvg);
 			if (imgAvg == 0 || imgAvg == 255) {
@@ -371,7 +383,7 @@ public class XinLv extends Activity {
 				if (newType != currentType) {
 					beats++;
 					flag=0;
-					text2.setText("脉冲数是"+String.valueOf(beats));
+					//text2.setText("脉冲数是"+String.valueOf(beats));
 					//Log.e(TAG, "BEAT!! beats=" + beats);
 				}
 			} else if (imgAvg > rollingAverage) {
@@ -416,8 +428,8 @@ public class XinLv extends Activity {
 					}
 				}
 				int beatsAvg = (beatsArrayAvg / beatsArrayCnt);
-				text.setText("您的的心率是"+String.valueOf(beatsAvg)+"  zhi:"+String.valueOf(beatsArray.length)
-						+"    "+String.valueOf(beatsIndex)+"    "+String.valueOf(beatsArrayAvg)+"    "+String.valueOf(beatsArrayCnt));
+				text.setText(String.valueOf(beatsAvg)+"次/分");
+				set.start();
 				//获取系统时间（ms）
 				startTime = System.currentTimeMillis();
 				beats = 0;
