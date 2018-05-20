@@ -32,4 +32,10 @@
         android:text="add remider">
     </Button>
 
+    <Button
+        android:id="@+id/cancle_btn"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Cancle all alarm"></Button>
+
 </LinearLayout>
