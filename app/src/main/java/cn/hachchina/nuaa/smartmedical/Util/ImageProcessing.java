@@ -2,17 +2,13 @@ package cn.hachchina.nuaa.smartmedical.Util;
 
 /**
  * 图像处理类
- * @author liuyazhuang
  *
  */
 public abstract class ImageProcessing {
 
 	/**
 	 * 内部调用的处理图片的方法
-	 * @param yuv420sp
-	 * @param width
-	 * @param height
-	 * @return
+	 *
 	 */
 	private static int decodeYUV420SPtoRedSum(byte[] yuv420sp, int width,int height) {
 		if (yuv420sp == null)
@@ -58,10 +54,7 @@ public abstract class ImageProcessing {
 
 	/**
 	 * 对外开放的图像处理方法
-	 * @param yuv420sp
-	 * @param width
-	 * @param height
-	 * @return
+	 *
 	 */
 	public static int decodeYUV420SPtoRedAvg(byte[] yuv420sp, int width,
 			int height) {

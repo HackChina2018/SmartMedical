@@ -41,7 +41,7 @@ import cn.hachchina.nuaa.smartmedical.Util.ImageProcessing;
 
 /**
  * 程序的主入口
- * @author liuyazhuang
+ *
  *
  */
 public class XinLv extends Activity {
@@ -85,7 +85,7 @@ public class XinLv extends Activity {
 
 	/**
 	 * 类型枚举
-	 * @author liuyazhuang
+	 *
 	 *
 	 */
 	public static enum TYPE {
@@ -149,7 +149,7 @@ public class XinLv extends Activity {
 		//将图表添加到布局中去
 		layout.addView(chart, new LayoutParams(LayoutParams.FILL_PARENT, LayoutParams.FILL_PARENT));
 
-		//这里的Handler实例将配合下面的Timer实例，完成定时更新图表的功能
+		//配合下面的Timer实例，完成定时更新图表的功能
 		handler = new Handler() {
 			@Override
 			public void handleMessage(Message msg) {
@@ -200,10 +200,7 @@ public class XinLv extends Activity {
 	
 	/**
 	 * 创建图表
-	 * @param color
-	 * @param style
-	 * @param fill
-	 * @return
+	 *
 	 */
 	protected XYMultipleSeriesRenderer buildRenderer(int color, PointStyle style, boolean fill) {
 		XYMultipleSeriesRenderer renderer = new XYMultipleSeriesRenderer();
@@ -339,10 +336,9 @@ public class XinLv extends Activity {
 		camera = null;
 	}
 	
-	
+
 	/**
-	 * 相机预览方法
-	 * 这个方法中实现动态更新界面UI的功能，
+	 *相机预览灰调方法PreviewCallback
 	 * 通过获取手机摄像头的参数来实时动态计算平均像素值、脉冲数，从而实时动态计算心率值。
 	 */
 	private static PreviewCallback previewCallback = new PreviewCallback() {
@@ -356,12 +352,13 @@ public class XinLv extends Activity {
 				return;
 			int width = size.width;
 			int height = size.height;
-			//图像处理
+
+			//图像处理，获得图像平均像素值
 			int imgAvg = ImageProcessing.decodeYUV420SPtoRedAvg(data.clone(),height,width);
 			gx=imgAvg;
 			//text1.setText("平均像素值是"+String.valueOf(imgAvg));
-			//像素平均值imgAvg,日志
-			//Log.i(TAG, "imgAvg=" + imgAvg);
+
+
 			if (imgAvg == 0 || imgAvg == 255) {
 				processing.set(false);
 				return;
@@ -380,11 +377,13 @@ public class XinLv extends Activity {
 			TYPE newType = currentType;
 			if (imgAvg < rollingAverage) {
 				newType = TYPE.RED;
+
+
+				//计算脉冲数
 				if (newType != currentType) {
-					beats++;
+					beats++;//脉冲数
 					flag=0;
-					//text2.setText("脉冲数是"+String.valueOf(beats));
-					//Log.e(TAG, "BEAT!! beats=" + beats);
+
 				}
 			} else if (imgAvg > rollingAverage) {
 				newType = TYPE.GREEN;
@@ -427,6 +426,7 @@ public class XinLv extends Activity {
 						beatsArrayCnt++;
 					}
 				}
+				//计算实时心率
 				int beatsAvg = (beatsArrayAvg / beatsArrayCnt);
 				text.setText(String.valueOf(beatsAvg)+"次/分");
 				set.start();
@@ -437,7 +437,7 @@ public class XinLv extends Activity {
 			processing.set(false);
 		}
 	};
-	
+
 	/**
 	 * 预览回调接口
 	 */
@@ -450,7 +450,7 @@ public class XinLv extends Activity {
 				camera.setPreviewDisplay(previewHolder);
 				camera.setPreviewCallback(previewCallback);
 			} catch (Throwable t) {
-				Log.e("PreviewDemo-surfaceCallback","Exception in setPreviewDisplay()", t);
+				Log.e("surfaceCallback","Exception in setPreviewDisplay()", t);
 			}
 		}
 		//当预览改变的时候回调此方法
@@ -475,10 +475,7 @@ public class XinLv extends Activity {
 
 	/**
 	 * 获取相机最小的预览尺寸
-	 * @param width
-	 * @param height
-	 * @param parameters
-	 * @return
+	 *
 	 */
 	private static Camera.Size getSmallestPreviewSize(int width, int height,
 			Camera.Parameters parameters) {

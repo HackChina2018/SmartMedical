@@ -37,7 +37,7 @@ public class UserBean {
         UserName = userName;
         EmergencyContact_Numer = emergencyContact_Numer;
         EmergencyContact_Name = emergencyContact_Name;
-        Default_EmergencyContact_Number = "15651808915";
+        Default_EmergencyContact_Number = "17351015423";
         Drug_Allergy = drug_Allergy;
         MedicalHistiry = medicalHistiry;
     }
@@ -100,6 +100,6 @@ public class UserBean {
     }
 
     public UserBean() {
-        Default_EmergencyContact_Number = "15651808915";
+        Default_EmergencyContact_Number = "17351015423";
     }
 }
