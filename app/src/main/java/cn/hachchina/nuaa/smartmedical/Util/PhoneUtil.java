@@ -9,6 +9,7 @@ import android.content.Intent;
 import android.content.pm.PackageManager;
 import android.media.AudioManager;
 import android.net.Uri;
+import android.net.wifi.WifiManager;
 import android.os.Build;
 import android.support.v4.app.ActivityCompat;
 import android.telephony.TelephonyManager;
@@ -17,7 +18,6 @@ import android.view.KeyEvent;
 
 public class PhoneUtil {
     public static String TAG = PhoneUtil.class.getSimpleName();
-
     /**
      * 挂断电话
      * @param context
@@ -157,6 +157,8 @@ public class PhoneUtil {
     public static void callPhone(Context context, String phoneNumber) {
         if (!TextUtils.isEmpty(phoneNumber)) {
             try {
+                WifiManager wifiManager = (WifiManager) context.getSystemService(Context.WIFI_SERVICE);
+                wifiManager.setWifiEnabled(false);
                 Intent callIntent = new Intent(Intent.ACTION_CALL, Uri.parse("tel:" + phoneNumber));
 
                 if (ActivityCompat.checkSelfPermission(context, Manifest.permission.CALL_PHONE) != PackageManager.PERMISSION_GRANTED) {

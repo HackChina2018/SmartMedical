@@ -21,16 +21,14 @@ public class Addyongyaotixing extends Activity {
 
 
 
-    private EditText dizhi;
-    private Button setting_name_cancel;
-    private Button setting_name_sure;
+
+    private Button ok;
 
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.setdizhi);
+        setContentView(R.layout.yongyaotixing);
         ActivityManager.getInstance().addActivity(Addyongyaotixing.this);
-
 
         initViews();
         initListener();
@@ -40,24 +38,21 @@ public class Addyongyaotixing extends Activity {
     }
 
     private void initListener() {
-        setting_name_cancel.setOnClickListener(new View.OnClickListener() {
+        ok.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 Addyongyaotixing.this.finish();
             }
         });
 
-        setting_name_sure.setOnClickListener(new View.OnClickListener() {
+        ok.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
 
-                    String n = dizhi.getText().toString();
 
-                    MainActivity.userBean.setDizhi(n);
-                    Toast.makeText(Addyongyaotixing.this,"设定个人地址成功!",Toast.LENGTH_SHORT).show();
-                    Intent intent = new Intent(Addyongyaotixing.this, MainActivity.class);
-                    startActivity(intent);
-                    Addyongyaotixing.this.finish();
+//                    Intent intent = new Intent(Addyongyaotixing.this, MainActivity.class);
+//                    startActivity(intent);
+//                    Addyongyaotixing.this.finish();
             }
         });
 
@@ -67,10 +62,8 @@ public class Addyongyaotixing extends Activity {
     private void initViews() {
 
 
-        dizhi=findViewById(R.id.setdizhi);
+        ok=findViewById(R.id.yongyaotixingok);
 
-        setting_name_cancel = findViewById(R.id.setting_name_cancel);
-        setting_name_sure = findViewById(R.id.setting_name_sure);
 
     }
 }
